@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>Tag: 中间件 | SHU DJ</title>
+  <title>ubuntu相关指令 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SHU DJ">
-<meta property="og:url" content="https://shudj.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.html">
+  <meta name="description" content="ubuntu各种指令集集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu相关指令">
+<meta property="og:url" content="https://shudj.github.io/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="SHU DJ">
+<meta property="og:description" content="ubuntu各种指令集集合">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-02-23T11:01:31.000Z">
+<meta property="article:modified_time" content="2025-03-23T11:13:57.098Z">
 <meta property="article:author" content="shudj">
+<meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -165,80 +170,234 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ubuntu相关指令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" class="archive-article-date">
-        <time datetime="2024-03-23T00:41:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-23</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" target="_blank">window 安装mosquitto 2.0+</a>
   
+    <h1 class="article-title" itemprop="name">
+      ubuntu相关指令
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2021-02-23T11:01:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-23</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>ubuntu各种指令集集合</p>
+<span id="more"></span>
+
+<p>1.防火墙相关</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看防火墙状态</span></span><br><span class="line">sudo ufw status</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭防火墙</span></span><br><span class="line">sudo ufw disable</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启防火墙</span></span><br><span class="line">sudo ufw enable</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">外来访问默认允许/拒绝</span></span><br><span class="line">ufw default allow/deny</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">允许/拒绝 访问20端口,20后可跟/tcp或/udp，表示tcp或udp封包。</span></span><br><span class="line">ufw allow/deny 20</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ufw从/etc/services中找到对应service的端口，进行过滤。</span></span><br><span class="line">ufw allow/deny servicename</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">允许自10.0.1.0/10的tcp封包访问本机的25端口。</span></span><br><span class="line">ufw allow proto tcp from 10.0.1.0/10 to 本机ip port 25</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除以前定义的<span class="string">&quot;允许/拒绝访问20端口&quot;</span>的规则</span></span><br><span class="line">ufw delete allow/deny 20</span><br></pre></td></tr></table></figure>
+
+<p>2.修改root密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>
+
+<p>3.更新数据源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">进入目录</span></span><br><span class="line">cd /etc/apt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份数据源</span></span><br><span class="line">cp sources.list sources.list.bak</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">阿里数据源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新数据源</span></span><br><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>4.开发22端口</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install openssh-server openssh-client</span><br><span class="line">service ssh start</span><br></pre></td></tr></table></figure>
+
+<p>5.安装拉取上传文件指令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">sz 文件名  将文件拉取到本地</span></span><br><span class="line">apt install lrzsz</span><br></pre></td></tr></table></figure>
+
+<p>6.状态栏点击软件放大缩小</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings set org.gnome.shell.extensions.dash-to-dock click-action &#x27;minimize&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>7.连接远程lunix服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ssh root@ip地址</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">root@ip地址 password: 要登录服务器的账户的密码</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">退出</span></span><br><span class="line">exit</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">原创传输文件</span></span><br><span class="line">scp 文件 root@ip地址:/home/cositea/(文件路径)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果你反过来操作，把远程主机的文件拷贝到当前系统，操作命令以下；</span></span><br><span class="line">scp root@223.6.6.6:/renwole123/mariadb.tar.gz /renwole</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果你想拷贝文件夹以及文件夹内的所有文件,就加参数 -r 如果你的端口号不是22，</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">那么需要在scp后加个 -P (区分大小写)端口号。</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">建议加-C选项，因为这样可以启用SSH的压缩功能；传输速度更快，例如</span></span><br><span class="line">scp -P 6632 -C /renwole/mariadb root@223.6.6.6:/renwole123/</span><br></pre></td></tr></table></figure>
+
+<p>8.连接远程windows服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install rdesktop</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">访问服务器系统</span></span><br><span class="line">rdesktop 192.168.0.3</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-u xxxxxx 登录用户，可选</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-p xxxxxx 登录密码，可选</span>        </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"> -r clipboard:PRIMARYCLIPBOARD 重要，剪贴板可以与远程桌面交互</span>        </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">-a 16 颜色，可选，不过最高就是16 位</span>        </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"> -z 压缩，可选</span>        </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"> -g 1024x768 分辨率，可选，缺省是一种比当前本地桌面低的分辨率</span>        </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"> -P 缓冲，可选</span>        </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"> -r disk:wj=/home/magicgod 映射虚拟盘，可选，</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">会在远程机器的网上邻居里虚拟出一个映射盘，功能很强，甚至可以是软盘或光盘</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"> -r sound:off 关闭声音，当然也可以把远程发的声音映射到本地来</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">虚拟机就不要用这个了，用了就是悲剧，最好调整虚拟机这个切换快捷键</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">rdesktop退出全屏模式 ：使用组合键ctrl+alt+enter进行切换。</span></span><br></pre></td></tr></table></figure>
+
+<p>9.snap安装相关</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看电脑上安装的软件</span></span><br><span class="line">snap list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在软件商城发现软件</span></span><br><span class="line">snap find &lt;软件包名&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">nap install &lt;snap软件包名&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新</span></span><br><span class="line">snap refresh &lt;snap软件包名&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新所有</span></span><br><span class="line">snap refresh all</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">还原到以前安装</span></span><br><span class="line">snap revert &lt;snap软件包名&gt;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载软件</span></span><br><span class="line">snap remove &lt;snap软件包名&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装固定版本软件</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看信息</span></span><br><span class="line">snap info mosquitto</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装</span></span><br><span class="line">snap install mosquitto --channel=1.3/stable</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置文件</span></span><br><span class="line">nano /etc/mosquitto/mosquitto.conf</span><br></pre></td></tr></table></figure>
+
+<p>10.开机自启动脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">1.首先编写一个脚本</span></span><br><span class="line">vim auto_start</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">2.编写执行的内容</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line">/usr/lib/vino/vino-server</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">3.赋权限</span></span><br><span class="line">sudo chmod 777 auto_start</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">4.移动到 /etc/init.d</span></span><br><span class="line">sudo mv auto_start /etc/init.d</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">5.添加开机启动</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">update-rc.d ＜serviceName＞ defaults NN     <span class="comment"># NN是一个决定启动顺序的两位数字值</span></span></span><br><span class="line">sudo update-rc.d auto_start defaults 90</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">6.删除开机启动</span></span><br><span class="line">sudo update-rc.d -f auto_start remove</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          shudj
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://shudj.github.io/2021/02/23/ubuntu相关指令/" title="ubuntu相关指令" target="_blank">https://shudj.github.io/2021/02/23/ubuntu相关指令/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">物联网</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
         		</li>
       		
 		</ul>
 	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/中间件//" class="article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
     
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+    <a href="/2021/03/01/nginx%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nginx解析动态域名
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -274,9 +433,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
