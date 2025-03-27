@@ -173,6 +173,217 @@
             
 
   
+    <article id="post-并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/03/27/%E5%B9%B6%E5%8F%91/" target="_blank">并发相关</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/03/27/%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+        <time datetime="2025-03-27T06:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-27</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="1-线程有几种状态"><a href="#1-线程有几种状态" class="headerlink" title="1.线程有几种状态"></a>1.线程有几种状态</h3><p>Java种，线程池有六种状态：</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始（NEW）</td>
+<td>新创建了一个线程对象，但是还没有调用start()方法</td>
+</tr>
+<tr>
+<td>运行（RUNNABLE）</td>
+<td>Java线程将操作系统中的就绪和运⾏两种状态笼统的称作“运⾏”</td>
+</tr>
+<tr>
+<td>阻塞（BLOCKED）</td>
+<td>表示线程阻塞于锁</td>
+</tr>
+<tr>
+<td>等待（WAITING）</td>
+<td>进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）</td>
+</tr>
+<tr>
+<td>超时等待（TIMED_WAITING）</td>
+<td>该状态不同于 WA IT IND，它是可以在指定的时间⾃⾏返回</td>
+</tr>
+<tr>
+<td>终止（TERMINATED）</td>
+<td>表示当前线程已经执行完毕</td>
+</tr>
+</tbody></table>
+    
+    <a class="article-more-a" href="/2025/03/27/%E5%B9%B6%E5%8F%91/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/03/27/%E5%B9%B6%E5%8F%91/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JMM-Java内存模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" target="_blank">JMM(Java内存模型)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+        <time datetime="2025-03-25T02:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-25</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Java 内存模型（JMM）定义了 Java 程序中的变量、线程如何和主存以及工作内存进行交互的规则。它主要涉及到多线程环境下的共享变量可见性、指令重排等问题，是理解并发编程中的关键概念。</p>
+<p>Java 内存模型（JMM）主要针对的是多线程环境下，如何在主内存与工作内存之间安全地执行操作。</p>
+    
+    <a class="article-more-a" href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-String拆分字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -233,6 +444,93 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面试1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/03/20/%E9%9D%A2%E8%AF%951/" target="_blank">当面试官说“你还有什么问题想要问的”，如果回答？</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/03/20/%E9%9D%A2%E8%AF%951/" class="archive-article-date">
+        <time datetime="2025-03-20T05:48:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-20</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>当面试官说“你还有什么问题想要问的”，如果回答？</p>
+<p>很多面试结束，不管成功与否，面试官都会抛出一句，“你还有什么问题想问的”，不能面试随口一问，你千万不能随口一答，想好你最关心的问题，这也是你了解公司、展现自我的最好机会，千万别浪费。</p>
+<p>所以，面试前要对公司足够的了解，便于最后一问问出特色，给面试官留下深刻的印象。</p>
+    
+    <a class="article-more-a" href="/2025/03/20/%E9%9D%A2%E8%AF%951/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/03/20/%E9%9D%A2%E8%AF%951/">展开全文 >></a>
     </p>
     
 
@@ -855,6 +1153,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
               </li>
             
             <div class="clearfix"></div>

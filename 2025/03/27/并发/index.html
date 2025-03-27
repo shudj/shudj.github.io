@@ -6,16 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>Tag: 物联网 | SHU DJ</title>
+  <title>并发相关 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SHU DJ">
-<meta property="og:url" content="https://shudj.github.io/tags/%E7%89%A9%E8%81%94%E7%BD%91/index.html">
+  <meta name="description" content="1.线程有几种状态Java种，线程池有六种状态：    状态 描述    初始（NEW） 新创建了一个线程对象，但是还没有调用start()方法   运行（RUNNABLE） Java线程将操作系统中的就绪和运⾏两种状态笼统的称作“运⾏”   阻塞（BLOCKED） 表示线程阻塞于锁   等待（WAITING） 进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）   超时等待（TIME">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并发相关">
+<meta property="og:url" content="https://shudj.github.io/2025/03/27/%E5%B9%B6%E5%8F%91/index.html">
 <meta property="og:site_name" content="SHU DJ">
+<meta property="og:description" content="1.线程有几种状态Java种，线程池有六种状态：    状态 描述    初始（NEW） 新创建了一个线程对象，但是还没有调用start()方法   运行（RUNNABLE） Java线程将操作系统中的就绪和运⾏两种状态笼统的称作“运⾏”   阻塞（BLOCKED） 表示线程阻塞于锁   等待（WAITING） 进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）   超时等待（TIME">
 <meta property="og:locale">
+<meta property="og:image" content="https://shudj.github.io/images/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.png">
+<meta property="article:published_time" content="2025-03-27T06:58:17.000Z">
+<meta property="article:modified_time" content="2025-03-27T13:01:25.746Z">
 <meta property="article:author" content="shudj">
+<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="并发">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shudj.github.io/images/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.png">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
   
@@ -167,80 +176,288 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-并发" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" class="archive-article-date">
-        <time datetime="2024-03-23T00:41:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-23</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" target="_blank">window 安装mosquitto 2.0+</a>
   
+    <h1 class="article-title" itemprop="name">
+      并发相关
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/03/27/%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+        <time datetime="2025-03-27T06:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-27</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="1-线程有几种状态"><a href="#1-线程有几种状态" class="headerlink" title="1.线程有几种状态"></a>1.线程有几种状态</h3><p>Java种，线程池有六种状态：</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>初始（NEW）</td>
+<td>新创建了一个线程对象，但是还没有调用start()方法</td>
+</tr>
+<tr>
+<td>运行（RUNNABLE）</td>
+<td>Java线程将操作系统中的就绪和运⾏两种状态笼统的称作“运⾏”</td>
+</tr>
+<tr>
+<td>阻塞（BLOCKED）</td>
+<td>表示线程阻塞于锁</td>
+</tr>
+<tr>
+<td>等待（WAITING）</td>
+<td>进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）</td>
+</tr>
+<tr>
+<td>超时等待（TIMED_WAITING）</td>
+<td>该状态不同于 WA IT IND，它是可以在指定的时间⾃⾏返回</td>
+</tr>
+<tr>
+<td>终止（TERMINATED）</td>
+<td>表示当前线程已经执行完毕</td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+
+<p>线程状态图</p>
+<p><img src="/images/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81.png" alt="图片"></p>
+<ul>
+<li><p>线程等待方法</p>
+<ul>
+<li>obj.wait():当⼀个线程A调⽤⼀个共享变量的 wait()⽅法时,线程A会被阻塞挂起,发⽣下⾯⼏种情况才会返回 ：</li>
+</ul>
+<p>  ​     线程A调⽤了共享对象 notify()或者 notifyAll()⽅法；</p>
+<p>  ​     其他线程调⽤了线程A的 interrupt() ⽅法，线程A抛出InterruptedException异常返回</p>
+<ul>
+<li>obj.wait(long timeout)&#x2F;obj.wait(long millis, int nanos): timeout时间到了自动唤醒。</li>
+<li>thread.join()&#x2F;thread.join(long millis)&#x2F;thread.join(long millis, int nanos)，当前线程里调用其它线程t的join方法，当前线程进入WAITING&#x2F;TIMED_WAITING状态，当前线程不会释放已经持有的对象锁。线程t执行完毕或者millis时间到，当前线程一般情况下进入RUNNABLE状态，也有可能进入BLOCKED状态（因为join是基于wait实现的）</li>
+</ul>
+</li>
+<li><p>线程通知</p>
+<ul>
+<li>obj.notify(): ⼀个线程A调⽤共享对象的 notify() ⽅法后，会唤醒⼀个在这个共享变量上调⽤ wait系列⽅法后被挂起的线程。 ⼀个共享变量上可能会有多个线程在等待，具体唤醒哪个等待的线程是随机的。</li>
+<li>obj.notifyAll()：不同于在共享变量上调⽤ notify() 函数会唤醒被阻塞到该共享变量上的⼀个线程，notifyAll() ⽅法则会唤醒所有在该共享变量上由于调⽤ wait 系列⽅法⽽被挂起的线程</li>
+</ul>
+</li>
+<li><p>线程让出优先权</p>
+<ul>
+<li>Thread.yield()：一定是当前线程调用此方法，当前线程放弃获取的CPU时间片，但不释放锁资源，由运行状态变为就绪状态，让OS再次选择线程。作用：让相同优先级的线程轮流执行，但并不保证一定会轮流执行。实际中无法保证yield()达到让步目的，因为让步的线程还有可能被线程调度程序再次选中。Thread.yield()不会导致阻塞。该方法与sleep()类似，只是不能由用户指定暂停多长时间。</li>
+</ul>
+</li>
+<li><p>线程终端</p>
+<p>  Java 中的线程中断是⼀种线程间的协作模式，通过设置线程的中断标志并不能直接终⽌该线程的执</p>
+<p>  ⾏，⽽是被中断的线程根据中断状态⾃⾏处理。</p>
+<ul>
+<li><p>void interrupt() ：中断线程，例如，当线程A运⾏时，线程B可以调⽤线程interrupt() ⽅法来设置线程的中断标志为true 并⽴即返回。设置标志仅仅是设置标志, 线程A实际并没有被中断， 会继续往下执⾏。</p>
+</li>
+<li><p>boolean isInterrupted() ⽅法： 检测当前线程是否被中断。</p>
+</li>
+<li><p>boolean interrupted() ⽅法： 检测当前线程是否被中断，与 isInterrupted 不同的是，该⽅法如果发现当前线程被中断，则会清除中断标志。</p>
+</li>
+</ul>
+</li>
+<li><p>线程休眠</p>
+<ul>
+<li>Thread.sleep(long millis)：一定是当前线程调用此方法，当前线程进入TIMED_WAITING状态，但不释放对象锁，millis后线程自动苏醒进入就绪状态。作用：给其它线程执行机会的最佳方式。</li>
+</ul>
+</li>
+</ul>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.jpg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          shudj
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://shudj.github.io/2025/03/27/并发/" title="并发相关" target="_blank">https://shudj.github.io/2025/03/27/并发/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">物联网</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/中间件//" class="article-tag-list-link color4">中间件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
         		</li>
       		
 		</ul>
 	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
     
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/03/27/%E5%B9%B6%E5%8F%91/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JMM(Java内存模型)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -276,9 +493,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
