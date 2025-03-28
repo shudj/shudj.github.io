@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>Tag: Java基础 | SHU DJ</title>
+  <title>synchronized和ReentrantLock的区别 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SHU DJ">
-<meta property="og:url" content="https://shudj.github.io/tags/Java%E5%9F%BA%E7%A1%80/index.html">
+  <meta name="description" content="项目中，常用的锁有两种：synchronized和ReentrantLock。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="synchronized和ReentrantLock的区别">
+<meta property="og:url" content="https://shudj.github.io/2025/03/28/synchronized-ReentrantLock/index.html">
 <meta property="og:site_name" content="SHU DJ">
+<meta property="og:description" content="项目中，常用的锁有两种：synchronized和ReentrantLock。">
 <meta property="og:locale">
+<meta property="article:published_time" content="2025-03-28T09:21:03.000Z">
+<meta property="article:modified_time" content="2025-03-28T10:31:06.333Z">
 <meta property="article:author" content="shudj">
+<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="并发">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -167,41 +174,116 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-synchronized-ReentrantLock" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      synchronized和ReentrantLock的区别
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2025/03/28/synchronized-ReentrantLock/" class="archive-article-date">
         <time datetime="2025-03-28T09:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
 </a>
 
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>项目中，常用的锁有两种：synchronized和ReentrantLock。</p>
+<span id="more"></span>
+
+<h4 id="锁的实现"><a href="#锁的实现" class="headerlink" title="锁的实现"></a>锁的实现</h4><p>synchronized是Java语言关键字，基于JVM实现。</p>
+<p>ReentrantLock是基于JDK的API层面AQS实现。</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>synchronized 可以用来修饰普通方法、静态方法和代码块</p>
+<p>ReentrantLock 只能用于代码块（使用lock()和unlock()方法，配合try&#x2F;finally实现加锁释放锁）</p>
+<h4 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h4><p>在JDK1.6锁优化以前，synchronized的性能⽐ReenTrantLock差很多。但是JDK6开始，增加了适应性⾃旋、锁消除等，两者性能就差不多了。</p>
+<h4 id="锁类型不同"><a href="#锁类型不同" class="headerlink" title="锁类型不同"></a>锁类型不同</h4><p>synchronized 是非公平锁</p>
+<p>ReentrantLock 默认为非公平锁，也可以手动指定为公平锁</p>
+<h4 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h4><p>synchronized不能响应中断</p>
+<p>ReentrantLock提供了⼀种能够中断等待锁的线程的机制，通过lock.lockInterruptibly()来实现这个机制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">ReentrantLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                lock.lockInterruptibly();</span><br><span class="line">                System.out.println(<span class="string">&quot;等待进入1&quot;</span>);</span><br><span class="line">                <span class="comment">// 模仿工作</span></span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">3</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;开始工作1&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                lock.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&quot;thread&quot;</span>);</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                lock.lock();</span><br><span class="line">                System.out.println(<span class="string">&quot;等待进入2&quot;</span>);</span><br><span class="line">                <span class="comment">// 模仿工作</span></span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">3</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;开始工作2&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                lock.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&quot;thread2&quot;</span>);</span><br><span class="line">        thread.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;停留一段时间&quot;</span>);</span><br><span class="line">        <span class="comment">// 终端线程</span></span><br><span class="line">        thread.interrupt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">等待进入1</span><br><span class="line">停留一段时间</span><br><span class="line">等待进入2</span><br><span class="line">java.lang.InterruptedException: sleep interrupted</span><br><span class="line">	at java.base/java.lang.Thread.sleep(Native Method)</span><br><span class="line">	at java.base/java.lang.Thread.sleep(Thread.java:337)</span><br><span class="line">	at java.base/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)</span><br><span class="line">	at com.shudj.od.Test.lambda$main$0(Test.java:22)</span><br><span class="line">	at java.base/java.lang.Thread.run(Thread.java:833)</span><br><span class="line">开始工作2</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：</strong>中断线程1，线程2就直接获取到锁，开始执行任务</p>
+<h4 id="等待-通知机制"><a href="#等待-通知机制" class="headerlink" title="等待&#x2F;通知机制"></a>等待&#x2F;通知机制</h4><p>synchronized与wait()和notify()&#x2F;notifyAll()⽅法结合实现等待&#x2F;通知机制，</p>
+<p>ReentrantLock类借助Condition接⼜与newCondition()⽅法实现等待(await相关方法）&#x2F;通知机制（signal、signalAll方法）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="type">ReentrantLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line">    <span class="keyword">static</span> <span class="type">Condition</span> <span class="variable">condition</span> <span class="operator">=</span> lock.newCondition();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                lock.lockInterruptibly();</span><br><span class="line">                System.out.println(<span class="keyword">new</span> <span class="title class_">Date</span>() + <span class="string">&quot;等待进入1&quot;</span>);</span><br><span class="line">                <span class="comment">// 等待</span></span><br><span class="line">                condition.await(<span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">                System.out.println(<span class="keyword">new</span> <span class="title class_">Date</span>() + <span class="string">&quot;开始工作1&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                lock.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&quot;thread&quot;</span>);</span><br><span class="line">        thread.start();</span><br><span class="line">        TimeUnit.MILLISECONDS.sleep(<span class="number">100</span>);</span><br><span class="line">        lock.lock();</span><br><span class="line">        System.out.println(<span class="keyword">new</span> <span class="title class_">Date</span>() + <span class="string">&quot;停留一段时间&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">finalI</span> <span class="operator">=</span> i;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    System.out.println(<span class="keyword">new</span> <span class="title class_">Date</span>() + <span class="string">&quot;等待进入 =&gt;&quot;</span> + finalI + <span class="string">&quot;进入阻塞队列&quot;</span>);</span><br><span class="line">                    lock.lock();</span><br><span class="line">                    System.out.println(<span class="keyword">new</span> <span class="title class_">Date</span>() + <span class="string">&quot;开始工作 =&gt;&quot;</span> + finalI + <span class="string">&quot;拿到锁开始工作&quot;</span>);</span><br><span class="line">                    TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    lock.unlock();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, <span class="string">&quot;thread&quot;</span>).start();</span><br><span class="line">        &#125;</span><br><span class="line">        TimeUnit.MILLISECONDS.sleep(<span class="number">100</span>);</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入1</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025停留一段时间</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;1进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;3进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;0进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;2进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;4进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025开始工作 =&gt;1拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:38 CST 2025开始工作 =&gt;3拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:40 CST 2025开始工作 =&gt;0拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:42 CST 2025开始工作 =&gt;2拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:44 CST 2025开始工作 =&gt;4拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:46 CST 2025开始工作1</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：</strong>从开始开工作的输出，也能看出默认是非公平锁</p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.jpg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/28/synchronized-ReentrantLock/" target="_blank">synchronized和ReentrantLock的区别</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          shudj
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://shudj.github.io/2025/03/28/synchronized-ReentrantLock/" title="synchronized和ReentrantLock的区别" target="_blank">https://shudj.github.io/2025/03/28/synchronized-ReentrantLock/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
 
-        <div class="article-info info-on-right">
-          
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -221,254 +303,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/03/28/synchronized-ReentrantLock/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="archive-article-date">
-        <time datetime="2025-03-28T07:49:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">线程池</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" target="_blank">线程池</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/" class="archive-article-date">
-        <time datetime="2025-03-28T07:10:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/" target="_blank">OOP原则</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/27/%E5%B9%B6%E5%8F%91/" class="archive-article-date">
-        <time datetime="2025-03-27T06:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-27</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/27/%E5%B9%B6%E5%8F%91/" target="_blank">并发相关</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-        <time datetime="2025-03-25T02:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" target="_blank">JMM(Java内存模型)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-        <time datetime="2025-03-24T09:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_blank">String拆分字符串</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -504,9 +439,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
