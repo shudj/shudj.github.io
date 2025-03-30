@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>String拆分字符串 | SHU DJ</title>
+  <title>MySQL索引相关 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="String类的split()的方法使用：">
+  <meta name="description" content="索引是对数据库表中一列或多列的值进行排序的一种数据结构。MySQL索引的简历对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String拆分字符串">
-<meta property="og:url" content="https://shudj.github.io/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:title" content="MySQL索引相关">
+<meta property="og:url" content="https://shudj.github.io/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="SHU DJ">
-<meta property="og:description" content="String类的split()的方法使用：">
+<meta property="og:description" content="索引是对数据库表中一列或多列的值进行排序的一种数据结构。MySQL索引的简历对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-03-24T09:25:08.000Z">
-<meta property="article:modified_time" content="2025-03-27T13:30:23.804Z">
+<meta property="article:published_time" content="2025-03-30T02:26:44.000Z">
+<meta property="article:modified_time" content="2025-03-30T07:46:03.218Z">
 <meta property="article:author" content="shudj">
-<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -172,14 +173,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-String拆分字符串" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL索引相关" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      String拆分字符串
+      MySQL索引相关
     </h1>
   
 
@@ -191,8 +192,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-        <time datetime="2025-03-24T09:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-24</time>
+<a href="/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+        <time datetime="2025-03-30T02:26:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-30</time>
 </a>
 
   
@@ -201,62 +202,58 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>String类的split()的方法使用：</p>
+    <p>索引是对数据库表中一列或多列的值进行排序的一种数据结构。MySQL索引的简历对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。</p>
 <span id="more"></span>
 
-<p>&#x2F;&#x2F; 传入正则表达式</p>
-<p><code>public String[] split(String regex)</code></p>
-<p>&#x2F;&#x2F; 传入正则表达式、返回数组限制长度</p>
-<p><code>public String[] split(String regex, int limit)</code></p>
-<p>1.简单点的按<code>.</code>切分</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestString</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;nihao.a&quot;</span>;</span><br><span class="line">        String[] split = str.split(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        System.out.println(Arrays.toString(split));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h3><h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><p><code>主键索引</code>：InnoDB 主键是默认的索引，数据列不允许重复，不允许为 NULL，⼀个表只能有⼀个主键。</p>
+<p><code>唯一索引</code>：数据列不允许重复，允许为 NULL 值，一张表可有多个唯一索引，索引列的值必须唯一。如果是组合索引，则列值的组合必须唯一。</p>
+<p><code>普通索引</code>：一张表可以创建多个普通索引，一个普通索引可以包含多个字段，允许数据重复，允许 NULL 值插入。</p>
+<p><code>组合索引</code>：多列值组成⼀个索引，⽤于组合搜索，效率⼤于索引合并。</p>
+<p><code>全文索引</code>：它查找的是文本中的关键词，主要用于全文检索。</p>
+<p><code>单例索引</code>：一个索引只包含一个列，一个表可以有多个单例索引。</p>
+<h4 id="物理分类"><a href="#物理分类" class="headerlink" title="物理分类"></a>物理分类</h4><p><code>聚簇索引</code>：聚簇索引（clustered index）不是单独的一种索引类型，而是一种数据存储方式。这种存储方式是依靠B+树来实现的，根据表的主键构造一棵B+树且B+树叶子节点存放的都是表的行记录数据时，方可称该主键索引为聚簇索引。聚簇索引也可理解为将数据存储与索引放到了一块，找到索引也就找到了数据。</p>
+<p><code>非聚簇索引</code>：数据和索引是分开的，B+树叶子节点存放的不是数据表的行记录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MyISAM 采⽤的是⾮聚簇索引，InnoDB 采⽤的是聚簇索引。</span><br></pre></td></tr></table></figure>
 
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
-
-<p><strong>注：</strong>类似于<code>.</code>这样的英文特殊符号，因为正则的关系，达不到想要的结果，需要做如下处理：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;\\.&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nihao, a]</span><br></pre></td></tr></table></figure>
-
-<p>以下方式也输出同样的效果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;[.]&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>注：</strong>类似的特殊英文字符包含，都可以使用以上方式解决（<code>[</code>,<code>]</code>只能使用<code>\\</code>方式）如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\ ^ $ ? * + ( ) [ ] &#123; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.使用split带限制数组长度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestString</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;nihao.a&quot;</span>;</span><br><span class="line">        String[] split = str.split(<span class="string">&quot;\\.&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(split));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nihao.a]</span><br></pre></td></tr></table></figure>
-
-<p><strong>注：</strong>因为限制了一个，如果数组只能长度为1，观看源码，会发现到限制的limit-1的时候就调用subString方法，直接截取后端了，核心代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!limited || list.size() &lt; limit - <span class="number">1</span>) &#123;</span><br><span class="line">    list.add(substring(off, next));</span><br><span class="line">    off = next + <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;    <span class="comment">// last one</span></span><br><span class="line">    <span class="comment">//assert (list.size() == limit - 1);</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">last</span> <span class="operator">=</span> length();</span><br><span class="line">    list.add(substring(off, last));</span><br><span class="line">    off = last;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再看下一段代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;\\.&quot;</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nihao, a]</span><br></pre></td></tr></table></figure>
-
-<p>会发现没有输出4个长度的数组，只输出两个，主要是他只能拆分成长度为2的数组，再看下一个例子，就能看出来limit的作用了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestString</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;nihao.aaa&quot;</span>;</span><br><span class="line">        String[] split = str.split(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        System.out.println(Arrays.toString(split));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nih, o.]</span><br></pre></td></tr></table></figure>
-
-<p>对比一下加上limit的结果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;a&quot;</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
-
-<p>可以猜测一下，按照正常情况，加上后面3个a，理论上应该输出长度为5的数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&quot;nih&quot;,&quot; o.&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>预测的一样，是长度为5的情况，怎么会这样的呢，limit的左右是什么，查看源码，重点片段</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (limit == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (resultSize &gt; <span class="number">0</span> &amp;&amp; list.get(resultSize - <span class="number">1</span>).isEmpty()) &#123;</span><br><span class="line">        resultSize--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">String[] result = <span class="keyword">new</span> <span class="title class_">String</span>[resultSize];</span><br><span class="line"><span class="keyword">return</span> list.subList(<span class="number">0</span>, resultSize).toArray(result);</span><br></pre></td></tr></table></figure>
-
-<p>当limit为0的时候，会去掉为空的数组元素，但是加了limit就不会</p>
+<p>两种索引区别：</p>
+<p>索引的数据结构是树，聚簇索引的索引和数据存储在⼀棵树上，树的叶⼦节点就是数据，⾮聚簇索引索引和数据不在⼀棵树上。</p>
+<p>⼀个表中只能拥有⼀个聚簇索引，⽽⾮聚簇索引⼀个表可以存在多个。</p>
+<p>聚簇索引，索引中键值的逻辑顺序决定了表中相应⾏的物理顺序；索引，索引中索引的逻辑顺序与磁盘上⾏的物理存储顺序不同。</p>
+<p>聚簇索引：物理存储按照索引排序；⾮聚集索引：物理存储不按照索引排序</p>
+<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p><code>B-树（B树）索引</code>：多路搜索树，树高一层意味着多一次的磁盘I&#x2F;O</p>
+<ul>
+<li>关键字集合分布在整颗树中；</li>
+<li>任何一个关键字出现且只出现在一个结点中；</li>
+<li>搜索有可能在非叶子结点结束；</li>
+<li>其搜索性能等价于在关键字全集内做一次二分查找；</li>
+<li>自动层次控制；</li>
+</ul>
+<p><code>B+树索引</code></p>
+<ul>
+<li>所有关键字都出现在叶子结点的链表中（稠密索引），且链表中的关键字恰好是有序的；</li>
+<li>不可能在非叶子结点命中；</li>
+<li>非叶子结点相当于是叶子结点的索引（稀疏索引），叶子结点相当于是存储（关键字）数据的数据层；</li>
+<li>每一个叶子节点都包含指向下一个叶子节点的指针，从而方便叶子节点的范围遍历。</li>
+<li>更适合文件索引系统；</li>
+</ul>
+<p><code>Hash索引</code>：哈希索引就是采用一定的哈希算法，把键值换算成新的哈希值，检索时不需要类似B+树那样从根节点到叶子节点逐级查找，只需一次哈希算法即可立刻定位到相应的位置，速度非常快。</p>
+<p>Hash索引仅仅能满足”&#x3D;”,“IN”和”&lt;&#x3D;&gt;”查询，不能使用范围查询。也不支持任何范围查询。</p>
+<p>由于Hash索引比较的是进行Hash运算之后的Hash值，所以它只能用于等值的过滤，不能用于基于范围的过滤，因为经过相应的Hash算法处理之后的Hash值的大小关系，并不能保证和Hash运算前完全一样。</p>
+<h3 id="索引失效场景"><a href="#索引失效场景" class="headerlink" title="索引失效场景"></a>索引失效场景</h3><ul>
+<li>查询条件包含or，可能导致索引失效，只有当or条件同时都是主键的时候，索引才会生效；</li>
+<li>如果字段类型是字符串，where 时⼀定⽤引号括起来，否则会因为隐式类型转换，索引失效；</li>
+<li>like 通配符可能导致索引失效，索键值以通配符<code>%开头</code>（如：<code>like &#39;%abc&#39;</code>），则索引失效，直接全表扫描；若只是以%结尾，则不影响索引构建；</li>
+<li>联合索引，查询时的条件列不是联合索引中的第⼀个列，索引失效，即违背最左匹配原则；</li>
+<li>在索引列上使⽤ mysql 的内置函数，索引失效；</li>
+<li>对索引列运算（如，<code>+、-、*、/</code>），索引失效；</li>
+<li>索引字段上使⽤（<code>!=</code> 或者 <code>&lt;&gt;</code>，<code>not in</code>，<code>not like</code>，<code>not</code>）时，可能会导致索引失效，普通索引使用 <code>!=</code>索引失效，主键索引没影响；</li>
+<li>索引最多使用一个<code>&gt;、&lt;</code>的范围列，因此如果查询条件中有两个<code>&gt;、&lt;</code>范围列则无法全用到索引（在 InnoDB 的联合索引中，查询的时候只有匹配了前⼀个&#x2F;左边的值之后，才能匹配下⼀个）；</li>
+<li>索引字段上使⽤ <code>is null</code>， <code>is not null</code>，可能导致索引失效，只有允许为null的字段的索引，使用该关键字才会走索引；</li>
+<li>左连接查询或者右连接查询查询关联的字段编码格式不⼀样，可能导致索引失效；</li>
+<li>MySQL 优化器估计使⽤全表扫描要⽐使⽤索引快,则不使⽤索引。</li>
+</ul>
+<h3 id="回表"><a href="#回表" class="headerlink" title="回表"></a>回表</h3><p>在 InnoDB 存储引擎⾥，利⽤辅助索引查询，先通过辅助索引找到主键索引的键值，再通过主键值查出主键索引⾥⾯没有符合要求的数据，它⽐基于主键索引的查询多扫描了⼀棵索引树，这个过程就叫回表。</p>
+<h3 id="覆盖索引"><a href="#覆盖索引" class="headerlink" title="覆盖索引"></a>覆盖索引</h3><p>在辅助索引⾥⾯，不管是单列索引还是联合索引，如果 select 的数据列只⽤辅助索引中就能够取得，不⽤去查主键索引，这时候使⽤的索引就叫做覆盖索引，避免了回表。</p>
 
     
 
@@ -298,7 +295,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://shudj.github.io/2025/03/24/String拆分字符串/" title="String拆分字符串" target="_blank">https://shudj.github.io/2025/03/24/String拆分字符串/</a>
+          <a href="https://shudj.github.io/2025/03/30/MySQL索引相关/" title="MySQL索引相关" target="_blank">https://shudj.github.io/2025/03/30/MySQL索引相关/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -317,7 +314,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -373,7 +374,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -388,18 +389,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2025/03/30/MySQL%E4%BA%8B%E7%89%A9%E7%9B%B8%E5%85%B3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JMM(Java内存模型)
+          MySQL事物相关
         
       </div>
     </a>
   
   
-    <a href="/2025/03/20/%E9%9D%A2%E8%AF%951/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">当面试官说“你还有什么问题想要问的”，如何回答？</div>
+    <a href="/2025/03/28/synchronized-ReentrantLock/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">synchronized和ReentrantLock的区别</div>
       <i class="icon-circle-right"></i>
     </a>
   

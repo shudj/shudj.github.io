@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>String拆分字符串 | SHU DJ</title>
+  <title>MySQL事物相关 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="String类的split()的方法使用：">
+  <meta name="description" content="数据库中的事务是指对数据库执行一批操作，在同一个事务当中，这些操作最终要么全部执行成功，要么全部失败，不会存在部分成功的情况。  事务是一个原子操作。是一个最小执行单元。可以甶一个或多个SQL语句组成 在同一个事务当中所有的SQL语句都成功执行时，整个事务成功，有一个SQL语句执行失败，整个事务都执行失败。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String拆分字符串">
-<meta property="og:url" content="https://shudj.github.io/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:title" content="MySQL事物相关">
+<meta property="og:url" content="https://shudj.github.io/2025/03/30/MySQL%E4%BA%8B%E7%89%A9%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="SHU DJ">
-<meta property="og:description" content="String类的split()的方法使用：">
+<meta property="og:description" content="数据库中的事务是指对数据库执行一批操作，在同一个事务当中，这些操作最终要么全部执行成功，要么全部失败，不会存在部分成功的情况。  事务是一个原子操作。是一个最小执行单元。可以甶一个或多个SQL语句组成 在同一个事务当中所有的SQL语句都成功执行时，整个事务成功，有一个SQL语句执行失败，整个事务都执行失败。">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-03-24T09:25:08.000Z">
-<meta property="article:modified_time" content="2025-03-27T13:30:23.804Z">
+<meta property="article:published_time" content="2025-03-30T07:55:15.000Z">
+<meta property="article:modified_time" content="2025-03-30T08:13:32.074Z">
 <meta property="article:author" content="shudj">
-<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -172,14 +173,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-String拆分字符串" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL事物相关" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      String拆分字符串
+      MySQL事物相关
     </h1>
   
 
@@ -191,8 +192,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-        <time datetime="2025-03-24T09:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-24</time>
+<a href="/2025/03/30/MySQL%E4%BA%8B%E7%89%A9%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+        <time datetime="2025-03-30T07:55:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-30</time>
 </a>
 
   
@@ -201,62 +202,85 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>String类的split()的方法使用：</p>
+    <p>数据库中的事务是指对数据库执行一批操作，在同一个事务当中，这些操作最终要么全部执行成功，要么全部失败，不会存在部分成功的情况。</p>
+<ul>
+<li>事务是一个原子操作。是一个最小执行单元。可以甶一个或多个SQL语句组成</li>
+<li>在同一个事务当中所有的SQL语句都成功执行时，整个事务成功，有一个SQL语句执行失败，整个事务都执行失败。</li>
+</ul>
 <span id="more"></span>
 
-<p>&#x2F;&#x2F; 传入正则表达式</p>
-<p><code>public String[] split(String regex)</code></p>
-<p>&#x2F;&#x2F; 传入正则表达式、返回数组限制长度</p>
-<p><code>public String[] split(String regex, int limit)</code></p>
-<p>1.简单点的按<code>.</code>切分</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestString</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;nihao.a&quot;</span>;</span><br><span class="line">        String[] split = str.split(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">        System.out.println(Arrays.toString(split));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="事物四大特性"><a href="#事物四大特性" class="headerlink" title="事物四大特性"></a>事物四大特性</h3><p><code>原⼦性（Atomicity）</code>：事务作为⼀个整体被执⾏，包含在其中的对数据库的操作要么全部被执⾏，要么都不执⾏。</p>
+<p><code>⼀致性（Consistency）</code>：指在事务开始之前和事务结束以后，数据不会被破坏，假如 A 账户给 B 账户转 10 块钱，不管成功与否，A 和 B 的总⾦额是不变的。</p>
+<p><code>隔离性（Isolation）</code>：一个事务的执行不能被其他事务干扰。即一个事务内部的操作及使用的数据对并发的其他事务是隔离的，并发执行的各个事务之间不能互相干扰。</p>
+<ul>
+<li><code>读未提交</code>：Read Uncommited RU<ul>
+<li>读未提交是隔离级别最低的一种事务级别。在这种隔离级别下，一个事务会读到另一个事务更新后但未提交的数据，如果另一个事务回滚，那么当前事务读到的数据就是脏数据，这就是脏读（Dirty Read）。</li>
+</ul>
+</li>
+<li><code>读已提交</code>：Read Commited RC<ul>
+<li>在 Read Committed 隔离级别下，一个事务可能会遇到不可重复读（Non Repeatable Read）的问题。不可重复读是指，在一个事务内，多次读同一数据，在这个事务还没有结束时，如果另一个事务恰好修改了这个数据，那么，在第一个事务中，两次读取的数据就可能不一致。</li>
+</ul>
+</li>
+<li><code>可重复读</code>：Repeatable Read RR<ul>
+<li>在Repeatable Read隔离级别下，一个事务可能会遇到幻读（Phantom Read）的问题。幻读是指，在一个事务中，第一次查询某条记录，发现没有，但是，当试图更新这条不存在的记录时，竟然能成功，并且，再次读取同一条记录，它就神奇地出现了。幻读就是没有读到的记录，以为不存在，但其实是可以更新成功的，并且，更新成功后，再次读取，就出现了。</li>
+</ul>
+</li>
+<li><code>串行化</code>：Serializable<ul>
+<li>Serializable 是最严格的隔离级别。在Serializable隔离级别下，所有事务按照次序依次执行，因此，脏读、不可重复读、幻读都不会出现。</li>
+<li>虽然 Serializable 隔离级别下的事务具有最高的安全性，但是，由于事务是串行执行，所以效率会大大下降，应用程序的性能会急剧降低。如果没有特别重要的情景，一般都不会使用Serializable隔离级别。</li>
+</ul>
+</li>
+</ul>
+<p><code>持久性（Durability）</code>：一个事务一旦提交，他对数据库中数据的改变就应该是永久性的。当事务提交之后，数据会持久化到硬盘，修改是永久性的。</p>
+<p>MySQL的默认隔离界别是可重复读（RR）。</p>
+<h3 id="脏读、幻读、不可重复读"><a href="#脏读、幻读、不可重复读" class="headerlink" title="脏读、幻读、不可重复读"></a>脏读、幻读、不可重复读</h3><ul>
+<li><p>事务 A、B 交替执⾏，事务 A 读取到事务 B 未提交的数据，这就是脏读。</p>
+</li>
+<li><p>在⼀个事务范围内，两个相同的查询，读取同⼀条记录，却返回了不同的数据，这就是不可重复读。</p>
+</li>
+<li><p>事务 A 查询⼀个范围的结果集，另⼀个并发事务 B 往这个范围中插⼊ &#x2F; 删除了数据，并静悄悄地提交，然后事务 A 再次查询相同的范围，两次读取得到的结果集不⼀样了，这就是幻读。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读可能性</th>
+<th>不可重复读可能性</th>
+<th>幻读可能性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>读未提交 READ-UNCOMMITTED</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>读已提交 READ-COMMITTED</td>
+<td>无</td>
+<td>有</td>
+<td>有</td>
+</tr>
+<tr>
+<td>可重复读 REPEATABLE-READ</td>
+<td>无</td>
+<td>无</td>
+<td>有</td>
+</tr>
+<tr>
+<td>串行化 SERIALIZABLE</td>
+<td>无</td>
+<td>无</td>
+<td>无</td>
+</tr>
+</tbody></table>
+<p>设置隔离级别</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">隔离级别设置,READ-UNCOMMITTED读未提交,READ-COMMITTED读已提交,REPEATABLE-READ可重复读,SERIALIZABLE串行，my.ini</span></span><br><span class="line">transaction-isolation=REPEATABLE-READ</span><br></pre></td></tr></table></figure>
 
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br></pre></td></tr></table></figure>
+<p>重启MySQL服务，查看隔离界别</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &#x27;transaction_isolation&#x27;;</span><br></pre></td></tr></table></figure>
 
-<p><strong>注：</strong>类似于<code>.</code>这样的英文特殊符号，因为正则的关系，达不到想要的结果，需要做如下处理：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;\\.&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nihao, a]</span><br></pre></td></tr></table></figure>
-
-<p>以下方式也输出同样的效果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;[.]&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>注：</strong>类似的特殊英文字符包含，都可以使用以上方式解决（<code>[</code>,<code>]</code>只能使用<code>\\</code>方式）如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\ ^ $ ? * + ( ) [ ] &#123; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.使用split带限制数组长度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestString</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;nihao.a&quot;</span>;</span><br><span class="line">        String[] split = str.split(<span class="string">&quot;\\.&quot;</span>,<span class="number">1</span>);</span><br><span class="line">        System.out.println(Arrays.toString(split));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nihao.a]</span><br></pre></td></tr></table></figure>
-
-<p><strong>注：</strong>因为限制了一个，如果数组只能长度为1，观看源码，会发现到限制的limit-1的时候就调用subString方法，直接截取后端了，核心代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!limited || list.size() &lt; limit - <span class="number">1</span>) &#123;</span><br><span class="line">    list.add(substring(off, next));</span><br><span class="line">    off = next + <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;    <span class="comment">// last one</span></span><br><span class="line">    <span class="comment">//assert (list.size() == limit - 1);</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">last</span> <span class="operator">=</span> length();</span><br><span class="line">    list.add(substring(off, last));</span><br><span class="line">    off = last;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再看下一段代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;\\.&quot;</span>,<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nihao, a]</span><br></pre></td></tr></table></figure>
-
-<p>会发现没有输出4个长度的数组，只输出两个，主要是他只能拆分成长度为2的数组，再看下一个例子，就能看出来limit的作用了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestString</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;nihao.aaa&quot;</span>;</span><br><span class="line">        String[] split = str.split(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        System.out.println(Arrays.toString(split));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[nih, o.]</span><br></pre></td></tr></table></figure>
-
-<p>对比一下加上limit的结果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] split = str.split(<span class="string">&quot;a&quot;</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
-
-<p>可以猜测一下，按照正常情况，加上后面3个a，理论上应该输出长度为5的数组</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&quot;nih&quot;,&quot; o.&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>预测的一样，是长度为5的情况，怎么会这样的呢，limit的左右是什么，查看源码，重点片段</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (limit == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span> (resultSize &gt; <span class="number">0</span> &amp;&amp; list.get(resultSize - <span class="number">1</span>).isEmpty()) &#123;</span><br><span class="line">        resultSize--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">String[] result = <span class="keyword">new</span> <span class="title class_">String</span>[resultSize];</span><br><span class="line"><span class="keyword">return</span> list.subList(<span class="number">0</span>, resultSize).toArray(result);</span><br></pre></td></tr></table></figure>
-
-<p>当limit为0的时候，会去掉为空的数组元素，但是加了limit就不会</p>
 
     
 
@@ -298,7 +322,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://shudj.github.io/2025/03/24/String拆分字符串/" title="String拆分字符串" target="_blank">https://shudj.github.io/2025/03/24/String拆分字符串/</a>
+          <a href="https://shudj.github.io/2025/03/30/MySQL事物相关/" title="MySQL事物相关" target="_blank">https://shudj.github.io/2025/03/30/MySQL事物相关/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -317,7 +341,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -373,7 +401,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/03/30/MySQL%E4%BA%8B%E7%89%A9%E7%9B%B8%E5%85%B3/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -388,18 +416,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JMM(Java内存模型)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2025/03/20/%E9%9D%A2%E8%AF%951/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">当面试官说“你还有什么问题想要问的”，如何回答？</div>
+    <a href="/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL索引相关</div>
       <i class="icon-circle-right"></i>
     </a>
   

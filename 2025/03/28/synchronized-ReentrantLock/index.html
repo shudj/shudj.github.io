@@ -17,7 +17,7 @@
 <meta property="og:description" content="项目中，常用的锁有两种：synchronized和ReentrantLock。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-03-28T09:21:03.000Z">
-<meta property="article:modified_time" content="2025-03-28T10:31:06.333Z">
+<meta property="article:modified_time" content="2025-03-30T02:17:14.934Z">
 <meta property="article:author" content="shudj">
 <meta property="article:tag" content="Java基础">
 <meta property="article:tag" content="面试">
@@ -229,6 +229,12 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入1</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025停留一段时间</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;1进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;3进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;0进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;2进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025等待进入 =&gt;4进入阻塞队列</span><br><span class="line">Fri Mar 28 18:25:36 CST 2025开始工作 =&gt;1拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:38 CST 2025开始工作 =&gt;3拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:40 CST 2025开始工作 =&gt;0拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:42 CST 2025开始工作 =&gt;2拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:44 CST 2025开始工作 =&gt;4拿到锁开始工作</span><br><span class="line">Fri Mar 28 18:25:46 CST 2025开始工作1</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
 
 <p><strong>注：</strong>从开始开工作的输出，也能看出默认是非公平锁</p>
+<h3 id="voltatitle"><a href="#voltatitle" class="headerlink" title="voltatitle"></a>voltatitle</h3><p>相⽐synchronized的加锁⽅式来解决共享变量的内存可见性问题，volatile就是更轻量的选择，它没有上下⽂切换的额外开销成本。</p>
+<p>volatile可以确保对某个变量的更新对其他线程马上可见，⼀个变量被声明为volatile 时，线程在写⼊变量时不会把值缓存在寄存器或者其他地⽅，⽽是会把值刷新回主内存当其它线程读取该共享变量，会从主内存重新获取最新值，⽽不是使⽤当前线程的本地内存中的值。</p>
+<p>volatitle可以保证线程可见且提供了一定的有序性，但是无法保证原子性。在JMM底层volatile是采用“内存屏障”来实现的，内存屏障会提供3个功能：</p>
+<p>1.确保指令重排序不会把其后面的指令排到内存屏障之前的位置，也不会把前面的指令排到内存屏障的后面</p>
+<p>2.会强制将缓存的修改操作立即写入主内存</p>
+<p>3.写操作，会导致其他CPU的对应的缓存行无效</p>
 
     
 
@@ -367,6 +373,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          MySQL索引相关
+        
+      </div>
+    </a>
   
   
     <a href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" id="article-nav-older" class="article-nav-link-wrap">
@@ -560,6 +575,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>
