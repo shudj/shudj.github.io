@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>SHU DJ</title>
+  <title>MySQL锁相关 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <meta name="keywords" content="">
-  
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SHU DJ">
-<meta property="og:url" content="https://shudj.github.io/page/2/index.html">
+  <meta name="description" content="锁（Locking）是数据库在并发访问时保证数据一致性和完整性的主要机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL锁相关">
+<meta property="og:url" content="https://shudj.github.io/2025/04/11/MySQL%E9%94%81%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="SHU DJ">
+<meta property="og:description" content="锁（Locking）是数据库在并发访问时保证数据一致性和完整性的主要机制">
 <meta property="og:locale">
+<meta property="article:published_time" content="2025-04-11T08:37:12.000Z">
+<meta property="article:modified_time" content="2025-04-11T09:53:48.327Z">
 <meta property="article:author" content="shudj">
+<meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -170,27 +172,27 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-String拆分字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-MySQL锁相关" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_blank">String拆分字符串</a>
-  
+    <h1 class="article-title" itemprop="name">
+      MySQL锁相关
     </h1>
   
 
 
   
   
-<a href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-        <time datetime="2025-03-24T09:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-24</time>
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/04/11/MySQL%E9%94%81%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+        <time datetime="2025-04-11T08:37:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-11</time>
 </a>
 
   
@@ -199,14 +201,197 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>String类的split()的方法使用：</p>
-    
-    <a class="article-more-a" href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/#more">more >></a>
-    
-    
+    <p>锁（Locking）是数据库在并发访问时保证数据一致性和完整性的主要机制</p>
+<span id="more"></span>
+
+<h3 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h3><h4 id="粒度分类"><a href="#粒度分类" class="headerlink" title="粒度分类"></a>粒度分类</h4><ul>
+<li><code>表锁</code>：具有开销⼩，加锁快的特性；锁定⼒度⼤，发⽣锁冲突概率⾼，并发度最低；不会出现死锁。</li>
+<li><code>⾏锁</code>：具有开销⼤，加锁慢的特性；锁定粒度⼩，发⽣锁冲突的概率低，并发度⾼；会出现死锁。</li>
+<li><code>页锁</code>：开销和加锁速度介于表锁和⾏锁之间；锁定粒度介于表锁和⾏锁之间，并发度⼀般；会出现死锁。</li>
+</ul>
+<h4 id="兼容性分类"><a href="#兼容性分类" class="headerlink" title="兼容性分类"></a>兼容性分类</h4><ul>
+<li><p><code>共享锁(S Lock)</code>，也叫读锁（read lock），允许获得该锁的事务读取数据行，同时允许其他事务获得该数据行上的共享锁，并且阻止其他事务获得数据行上的排他锁，相互不阻塞的。</p>
+<p>获取共享锁</p>
+<ul>
+<li><code>select ... for share</code>，在MySQL8.0以后的版本</li>
+<li><code>select ... lock in share mode</code>，在MySQL8.0之前的版本</li>
+</ul>
+</li>
+<li><p><code>排他锁(X Lock)</code>，也叫写锁（write lock），允许获得该锁的事务更新或删除数据行，排它锁是阻塞的，在⼀定时间内，只有⼀个请求能执⾏写⼊，并阻⽌其它锁读取正在写⼊的数据。</p>
+<p>获取排他锁</p>
+<ul>
+<li><code>select ... for update</code></li>
+</ul>
+</li>
+</ul>
+<p>两种锁的兼容性：</p>
+<table>
+<thead>
+<tr>
+<th>锁类型</th>
+<th>共享锁</th>
+<th>排他锁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>共享锁</strong></td>
+<td>兼容</td>
+<td>冲突</td>
+</tr>
+<tr>
+<td><strong>排他锁</strong></td>
+<td>冲突</td>
+<td>冲突</td>
+</tr>
+</tbody></table>
+<h4 id="意向锁分类"><a href="#意向锁分类" class="headerlink" title="意向锁分类"></a>意向锁分类</h4><p>意向锁是⼀个表级锁，不要和插⼊意向锁搞混。</p>
+<p>意向锁的出现是为了⽀持 InnoDB 的多粒度锁，它解决的是表锁和⾏锁共存的问题。</p>
+<p>当我们需要给⼀个表加表锁的时候，我们需要根据去判断表中有没有数据⾏被锁定，以确定是否能加成功。</p>
+<p>假如没有意向锁，那么我们就得遍历表中所有数据⾏来判断有没有⾏锁；有了意向锁这个表级锁之后，则我们直接判断⼀次就知道表中是否有数据⾏被锁定了。有了意向锁之后，要执⾏的事务 A 在申请⾏锁（写锁）之前，数据库会⾃动先给事务 A 申请表的意向排他锁。当事务 B 去申请表的互斥锁时就会失败，因为表上有意向排他锁之后事务 B 申请表的互斥锁时会被阻塞。</p>
+<p><strong>意向锁属于表级锁</strong>，由 InnoDB 自动添加，不需要用户干预。意向锁也分为共享和排他两种方式：</p>
+<ul>
+<li><code>意向共享锁(IS)</code>：事务在给数据行加行级共享锁之前，必须先取得该表的 IS 锁。</li>
+<li><code>意向排他锁(IX)</code>：事务在给数据行加行级排他锁之前，必须先取得该表的 IX 锁。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>锁类型</th>
+<th>共享锁(S)</th>
+<th>排他锁(X)</th>
+<th>意向共享锁(IS)</th>
+<th>意向排他锁(IX)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>共享锁(S)</strong></td>
+<td>兼容</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>冲突</td>
+</tr>
+<tr>
+<td><strong>排他锁(S)</strong></td>
+<td>冲突</td>
+<td>冲突</td>
+<td>冲突</td>
+<td>冲突</td>
+</tr>
+<tr>
+<td><strong>意向共享锁(IS)</strong></td>
+<td>兼容</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>兼容</td>
+</tr>
+<tr>
+<td><strong>意向排他锁(IX)</strong></td>
+<td>冲突</td>
+<td>冲突</td>
+<td>兼容</td>
+<td>兼容</td>
+</tr>
+</tbody></table>
+<h3 id="InnoDB-⾥的⾏锁实现"><a href="#InnoDB-⾥的⾏锁实现" class="headerlink" title="InnoDB ⾥的⾏锁实现"></a><strong>InnoDB</strong> ⾥的⾏锁实现</h3><p><strong>InnoDB 通过给索引上的索引记录加锁的方式实现行级锁</strong>。具体来说，InnoDB 实现了三种行锁的算法：<code>记录锁（Record Lock）</code>、<code>间隙锁（Gap Lock）</code>和<code> Next-key 锁（Next-key Lock）</code>又称临键锁。</p>
+<p>其中间隙锁只在RR隔离级别下生效，其目的是为了防止产生幻读。Next-key 锁（Next-key Lock）相当于一个索引记录锁加上该记录之前的一个间隙锁。</p>
+<p><strong>间 隙 锁(Gap Locks) 和 临 键 锁(Next-Key Locks) 都是⽤来解决幻读问题的，在 已 提 交 读 （READ COMMITTED） 隔离级别下， 间 隙 锁(Gap Locks) 和 临 键 锁(Next-Key Locks) 都会失效！</strong></p>
+<h4 id="记录锁"><a href="#记录锁" class="headerlink" title="记录锁"></a>记录锁</h4><p><strong>记录锁（Record Lock）是针对索引记录（index record）的锁定</strong>。例如，<code>SELECT * FROM t WHERE id = 1 FOR UPDATE;</code>会阻止其他事务对表 t 中 id &#x3D; 1 的数据执行插入、更新，以及删除操作。</p>
+<p>全局变量 <code>innodb_status_output</code> 和<code> innodb_status_output_locks</code> 用于控制 InnoDB 标准监控和锁监控，我们利用监控查看锁的使用情况。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set GLOBAL innodb_status_output = ON;</span><br><span class="line">set GlOBAL innodb_status_output_locks=ON;</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>SHOW ENGINE INNODB STATUS</code>命令查看 InnoDB 监控中关于锁的事务数据。</p>
+<h4 id="间隙锁"><a href="#间隙锁" class="headerlink" title="间隙锁"></a>间隙锁</h4><p><strong>间隙锁（Gap Lock）锁定的是索引记录之间的间隙、第一个索引之前的间隙或者最后一个索引之后的间隙，是一个左开右开的空间</strong>。例如，<code>SELECT * FROM t WHERE c1 BETWEEN 1 and 10 FOR UPDATE</code>；会阻止其他事务将 1 到 10 之间的任何值插入到 c1 字段中，即使该列不存在这样的数据；因为这些值都会被锁定。</p>
+<p>加锁规则有以下特性：</p>
+<ul>
+<li><p>加锁的基本单位是（next-key lock）,他是前开后闭原则(这里实际是指的记录锁与间隙锁的组合)</p>
+</li>
+<li><p>插叙过程中访问的对象会增加锁</p>
+</li>
+<li><p>索引上的等值查询–给唯一索引加锁的时候，（next-key lock）升级为记录锁(注：在&gt;&#x3D;或between时只对主键生效，唯一但非主键索引不生效)。</p>
+</li>
+<li><p>索引上的等值查询–向右遍历时最后一个值不满足查询需求时，next-key lock 退化为间隙锁</p>
+</li>
+<li><p>唯一索引上的范围查询会访问到不满足条件的第一个值为止</p>
+</li>
+</ul>
+<h4 id="Next-key-锁"><a href="#Next-key-锁" class="headerlink" title="Next-key 锁"></a>Next-key 锁</h4><p><strong>Next-key 锁（Next-key Lock）相当于一个索引记录锁加上该记录之前的一个间隙锁，是一个左开右闭的空间。</strong></p>
+<p>InnoDB 实现行级锁的方式如下：当搜索或扫描表索引时，在遇到的索引记录上设置共享锁或排它锁。因此，InnoDB 行级锁实际上是索引记录锁。</p>
+<h4 id="Insert-Intention-Lock插⼊意向锁"><a href="#Insert-Intention-Lock插⼊意向锁" class="headerlink" title="Insert Intention Lock插⼊意向锁"></a>Insert Intention Lock插⼊意向锁</h4><p>⼀个事务在插⼊⼀条记录时需要判断⼀下插⼊位置是不是被别的事务加了意向锁 ，如果有的话，插⼊操作需要等待，直到拥有 gap 锁 的那个事务提交。但是事务在等待的时候也需要在内存中⽣成⼀个锁结构 ，表明有事务想在某个 间隙 中插⼊新记录，但是现在在等待。这种类型的锁命名为 <code>Insert Intention Locks</code> ，也就是<code>插⼊意向锁</code> 。</p>
+<h3 id="悲观锁和乐观锁"><a href="#悲观锁和乐观锁" class="headerlink" title="悲观锁和乐观锁"></a>悲观锁和乐观锁</h3><h4 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h4><p>悲观锁认为被它保护的数据是极其不安全的，每时每刻都有可能被改动，⼀个事务拿到悲观锁后，其他任何事务都不能对该数据进⾏修改，只能等待锁被释放才可以执⾏。</p>
+<p>数据库中的⾏锁，表锁，读锁，写锁均为悲观锁。</p>
+<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><p>我们通常用的字段<code>version</code>，业务代码控制判断，where 条件判断version是不是拿到的上一个值，如果是执行，如果不是说明有其他事务对该行数据做了更改，则当前事务执行失败。</p>
+<h3 id="死锁的预防和避免"><a href="#死锁的预防和避免" class="headerlink" title="死锁的预防和避免"></a>死锁的预防和避免</h3><ul>
+<li><p>尽早提交事务：</p>
+<p>避免在事务中执行长时间的计算、网络操作或其他耗时操作，以减少锁的持有时间。</p>
+</li>
+<li><p>拆分大事务：</p>
+<p>将大事务拆分为多个较小的事务，以减少事务的持有锁时间。</p>
+</li>
+<li><p>使用合适的索引：</p>
+<p>确保查询语句使用合适的索引，以减少锁定的数据量。</p>
+<p>使用索引可以提高查询效率，并减少事务持有锁的时间。</p>
+</li>
+<li><p>优化查询语句：</p>
+<p>尽量使用更精确的条件来限制查询范围，避免长时间持有锁定的行。</p>
+</li>
+<li><p>使用乐观锁：</p>
+<p>对于一些并发较高的场景，可以考虑使用乐观锁机制。</p>
+<p>乐观锁不会持有实际的锁，而是通过版本号或时间戳等方式进行冲突检测，减少了事务持有锁的时间。</p>
+</li>
+<li><p>提高系统性能：</p>
+<p>提升数据库服务器的性能，例如增加内存、优化硬件配置等，可以减少事务持有锁的时间。</p>
+<p>确保系统具有足够的资源来处理并发请求，避免因资源不足而导致事务等待。</p>
+</li>
+</ul>
 
     
 
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.jpg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          shudj
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://shudj.github.io/2025/04/11/MySQL锁相关/" title="MySQL锁相关" target="_blank">https://shudj.github.io/2025/04/11/MySQL锁相关/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
     
 
   </div>
@@ -218,7 +403,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
@@ -227,16 +412,85 @@
     
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/04/11/MySQL%E9%94%81%E7%9B%B8%E5%85%B3/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+    <a href="/2025/04/13/Redis%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Redis内存淘汰策略
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/04/10/List%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">List集合</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -257,541 +511,14 @@
 
 
 
-  
-    <article id="post-面试1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2025/03/20/%E9%9D%A2%E8%AF%951/" target="_blank">当面试官说“你还有什么问题想要问的”，如何回答？</a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2025/03/20/%E9%9D%A2%E8%AF%951/" class="archive-article-date">
-        <time datetime="2025-03-20T05:48:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-20</time>
-</a>
 
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>当面试官说“你还有什么问题想要问的”，如何回答？</p>
-    
-    <a class="article-more-a" href="/2025/03/20/%E9%9D%A2%E8%AF%951/#more">more >></a>
-    
-    
 
-    
 
-    
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-    
 
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2025/03/20/%E9%9D%A2%E8%AF%951/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-window-安装mosquitto-2-0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" target="_blank">window 安装mosquitto 2.0+</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" class="archive-article-date">
-        <time datetime="2024-03-23T00:41:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-23</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>安装windows版本 mosuqitto 2.0+并设置用户名密码</p>
-    
-    <a class="article-more-a" href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">物联网</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/中间件//" class="article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-windows程序开机自启动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/02/02/windows%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/" target="_blank">windows程序开机自启动</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/02/02/windows%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/" class="archive-article-date">
-        <time datetime="2022-02-02T10:36:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-02</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>将自定义的exe或者bat文件程序，在windows下开机自启动</p>
-    
-    <a class="article-more-a" href="/2022/02/02/windows%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/02/02/windows%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-Boot做出window服务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/02/01/Spring-Boot%E5%81%9A%E5%87%BAwindow%E6%9C%8D%E5%8A%A1/" target="_blank">Spring Boot做出window服务</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/02/01/Spring-Boot%E5%81%9A%E5%87%BAwindow%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
-        <time datetime="2022-02-01T01:05:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-01</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>将SpringBoot打包好的程序做成windows的服务，实现开机自启动</p>
-    
-    <a class="article-more-a" href="/2022/02/01/Spring-Boot%E5%81%9A%E5%87%BAwindow%E6%9C%8D%E5%8A%A1/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/02/01/Spring-Boot%E5%81%9A%E5%87%BAwindow%E6%9C%8D%E5%8A%A1/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nginx解析动态域名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/03/01/nginx%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/" target="_blank">nginx解析动态域名</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/03/01/nginx%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/" class="archive-article-date">
-        <time datetime="2021-03-01T10:55:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>nginx代理有时候存在着，根据域名动态解析处ip地址（即域名不变ip可能随着时间变化会改变的情况），使用ip地址代理接口，使用resolver</p>
-    
-    <a class="article-more-a" href="/2021/03/01/nginx%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/03/01/nginx%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ubuntu相关指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" target="_blank">ubuntu相关指令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2021-02-23T11:01:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-23</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>ubuntu各种指令集集合</p>
-    
-    <a class="article-more-a" href="/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -826,8 +553,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
