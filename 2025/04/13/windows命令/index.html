@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>Archives | SHU DJ</title>
+  <title>windows命令 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SHU DJ">
-<meta property="og:url" content="https://shudj.github.io/archives/page/2/index.html">
+  <meta name="description" content="记录windows相关命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows命令">
+<meta property="og:url" content="https://shudj.github.io/2025/04/13/windows%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="SHU DJ">
+<meta property="og:description" content="记录windows相关命令">
 <meta property="og:locale">
+<meta property="article:published_time" content="2025-04-13T11:53:07.000Z">
+<meta property="article:modified_time" content="2025-04-13T12:14:15.900Z">
 <meta property="article:author" content="shudj">
+<meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -167,248 +172,148 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-windows命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-        <time datetime="2025-03-25T02:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-25</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" target="_blank">JMM(Java内存模型)</a>
   
+    <h1 class="article-title" itemprop="name">
+      windows命令
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-          
+<a href="/2025/04/13/windows%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2025-04-13T11:53:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-13</time>
+</a>
 
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>记录windows相关命令</p>
+<span id="more"></span>
+
+<h4 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h4><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 示例代码：更改Windows文件夹所有权</span><br><span class="line">takeown /f E:\project\UC-BMS /r /d y</span><br><span class="line">icacls E:\project\UC-BMS /grant USERNAME:F /t</span><br></pre></td></tr></table></figure>
+
+<p><strong>注</strong>：针对一下错误</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.deploy_git&#x27; is owned by:</span><br><span class="line">        (inconvertible) (S-1-5-21-463249815-3065990979-1447414722-1001)</span><br><span class="line">but the current user is:</span><br><span class="line">        DESKTOP-SCA7ER8/username (S-1-5-21-1598257996-2487661147-1189533222-1001)</span><br><span class="line">To add an exception for this directory, call:</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>takeown</code>命令</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">takeown [/s &lt;computer&gt; [/u [&lt;domain&gt;\]&lt;username&gt; [/p [&lt;password&gt;]]]] /f &lt;filename&gt; [/a] [/r [/d &#123;Y|N&#125;]]</span><br></pre></td></tr></table></figure>
+
+<p>参数解析</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x2F;s <code>&lt;computer&gt;</code></td>
+<td>指定远程计算机的名称或 IP 地址（不使用反斜杠）。 默认值为本地计算机。 此参数适用于命令中指定的所有文件和文件夹。</td>
+</tr>
+<tr>
+<td>&#x2F;u <code>[&lt;domain&gt;\]&lt;username&gt;</code></td>
+<td>使用指定用户帐户的权限运行脚本。 默认值为系统权限。</td>
+</tr>
+<tr>
+<td>&#x2F;p <code>[&lt;[password&gt;]</code></td>
+<td>指定在 <strong>&#x2F;u</strong> 参数中指定的用户帐户的密码。</td>
+</tr>
+<tr>
+<td>&#x2F;f <code>&lt;filename&gt;</code></td>
+<td>指定文件名或目录名称模式。 指定模式时，可以使用通配符 <code>*</code>。 还可以使用语法 <code>&lt;sharename&gt;\&lt;filename&gt;</code>。</td>
+</tr>
+<tr>
+<td>&#x2F;a</td>
+<td>为管理员组而不是当前用户提供所有权。 如果未指定此选项，则会向当前登录到计算机的用户提供文件所有权。</td>
+</tr>
+<tr>
+<td>&#x2F;r</td>
+<td>对指定目录和子目录中的所有文件执行递归作。</td>
+</tr>
+<tr>
+<td>&#x2F;d {Y|N}</td>
+<td>禁止在当前用户对指定目录具有 <strong>列表文件夹</strong> 权限时显示的确认提示，而是使用指定的默认值。 <strong>&#x2F;d</strong> 选项的有效值为：<br/>Y - 获取目录的所有权 <br/>N - 跳过目录<br/><strong>注释</strong>：必须和<code>/r</code>结合使用</td>
+</tr>
+<tr>
+<td>&#x2F;?</td>
+<td>获取帮助</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>icacls</code>命令</li>
+</ul>
+<p>详见：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/icacls">https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/icacls</a></p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.jpg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          shudj
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://shudj.github.io/2025/04/13/windows命令/" title="windows命令" target="_blank">https://shudj.github.io/2025/04/13/windows命令/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
   </div>
-</article>
-  
+  <div class="article-info article-info-index">
     
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-        <time datetime="2025-03-24T09:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_blank">String拆分字符串</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/20/%E9%9D%A2%E8%AF%951/" class="archive-article-date">
-        <time datetime="2025-03-20T05:48:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/20/%E9%9D%A2%E8%AF%951/" target="_blank">当面试官说“你还有什么问题想要问的”，如何回答？</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" class="archive-article-date">
-        <time datetime="2024-03-23T00:41:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-03-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/03/23/window-%E5%AE%89%E8%A3%85mosquitto-2-0/" target="_blank">window 安装mosquitto 2.0+</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">物联网</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/中间件//" class="article-tag-list-link color4">中间件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/02/02/windows%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/" class="archive-article-date">
-        <time datetime="2022-02-02T10:36:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/02/02/windows%E7%A8%8B%E5%BA%8F%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8/" target="_blank">windows程序开机自启动</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -420,166 +325,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/04/13/windows%E5%91%BD%E4%BB%A4/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2022/02/01/Spring-Boot%E5%81%9A%E5%87%BAwindow%E6%9C%8D%E5%8A%A1/" class="archive-article-date">
-        <time datetime="2022-02-01T01:05:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-01</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2025/04/13/Redis%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis内存淘汰策略</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2022/02/01/Spring-Boot%E5%81%9A%E5%87%BAwindow%E6%9C%8D%E5%8A%A1/" target="_blank">Spring Boot做出window服务</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring Boot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/03/01/nginx%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/" class="archive-article-date">
-        <time datetime="2021-03-01T10:55:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/03/01/nginx%E8%A7%A3%E6%9E%90%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D/" target="_blank">nginx解析动态域名</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2021-02-23T11:01:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/02/23/ubuntu%E7%9B%B8%E5%85%B3%E6%8C%87%E4%BB%A4/" target="_blank">ubuntu相关指令</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
+
+
 
 
           </div>
@@ -615,8 +461,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
