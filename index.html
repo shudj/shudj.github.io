@@ -173,6 +173,120 @@
             
 
   
+    <article id="post-Spring的作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/04/16/Spring%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" target="_blank">Spring Bean作用域</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/04/16/Spring%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
+        <time datetime="2025-04-16T13:22:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-16</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>在Spring框架中，<strong>Bean的作用域</strong>（Spring Bean Scope）是一个核心概念，它决定了在Spring IoC容器中Bean实例的生命周期和可见性。Spring提供了多种作用域，包括<strong>singleton</strong>（单例）、<strong>prototype</strong>（原型）、<strong>request</strong>（请求）、<strong>session</strong>（会话）、<strong>application</strong>（应用程序）和<strong>websocket</strong>（WebSocket），每种作用域都适用于不同的应用场景。</p>
+<ul>
+<li>Singleton作用域</li>
+</ul>
+<p><strong>Singleton</strong>作用域是Spring的默认作用域，它确保在Spring IoC容器中，每个Bean定义只有一个实例。无论请求多少次，都会返回同一个Bean实例。这种作用域适用于无状态的Bean，例如服务层、数据访问层或工具类。</p>
+<ul>
+<li>Prototype作用域</li>
+</ul>
+<p>与Singleton不同，<strong>Prototype</strong>作用域会为每个Bean请求创建一个新实例。这意味着每次调用*getBean()*时，都会得到一个新的Bean对象。这适用于那些有状态的Bean，其状态信息不应该被多个请求或线程共享。</p>
+<ul>
+<li>Request、Session和Application作用域</li>
+</ul>
+<p>这三个作用域都是基于Web应用的，它们分别将Bean的生命周期绑定到HTTP请求、用户会话和整个Web应用程序的生命周期。</p>
+<ol>
+<li><p><strong>Request</strong>作用域的Bean会为每个HTTP请求创建一个新实例，</p>
+</li>
+<li><p><strong>Application</strong>作用域的Bean则在整个ServletContext中只创建一个实例，适用于全局共享的数据。</p>
+</li>
+<li><p><strong>Session</strong>作用域的Bean则在同一个HTTP会话中共享一个实例。</p>
+</li>
+</ol>
+<ul>
+<li>自定义作用域</li>
+</ul>
+<p>Spring还允许开发者定义自己的作用域，通过实现<em>Scope</em>接口并注册到Spring容器中，可以创建满足特定需求的自定义作用域。</p>
+<ul>
+<li>使用注解定义Bean的作用域</li>
+</ul>
+<p>除了在XML配置文件中声明Bean的作用域，Spring还提供了注解方式来定义作用域。例如，使用*@Scope(“prototype”)<em>注解可以将Bean声明为Prototype作用域，而</em>@RequestScope<em>、</em>@SessionScope<em>和</em>@ApplicationScope*注解则分别用于声明对应的Web相关作用域。</p>
+<p><strong>作用域的选择</strong></p>
+<p>选择正确的Bean作用域对于管理应用程序的状态和资源非常重要。例如，对于需要跨多个请求保持状态的组件，应选择Request或Session作用域。对于全局配置或缓存信息，Application作用域可能更合适。而对于那些每次使用时都需要独立状态的组件，则应选择Prototype作用域。</p>
+<p>在实际开发中，理解和选择合适的Spring Bean作用域对于构建高效、可维护的Spring应用至关重要。开发者应根据应用程序的具体需求和行为来选择最合适的作用域，以确保资源的有效管理和应用程序的稳定运行。</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/04/16/Spring%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-windows命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -970,99 +1084,6 @@
 
 
   
-    <article id="post-并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2025/03/27/%E5%B9%B6%E5%8F%91/" target="_blank">并发相关</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2025/03/27/%E5%B9%B6%E5%8F%91/" class="archive-article-date">
-        <time datetime="2025-03-27T06:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-27</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="1-线程有几种状态"><a href="#1-线程有几种状态" class="headerlink" title="1.线程有几种状态"></a>1.线程有几种状态</h3><p>Java种，线程池有六种状态：</p>
-    
-    <a class="article-more-a" href="/2025/03/27/%E5%B9%B6%E5%8F%91/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2025/03/27/%E5%B9%B6%E5%8F%91/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1232,6 +1253,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>

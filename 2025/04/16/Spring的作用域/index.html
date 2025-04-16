@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>List集合 | SHU DJ</title>
+  <title>Spring Bean作用域 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Java集合中常用的集合ArrayList，LinkedList">
+  <meta name="description" content="在Spring框架中，Bean的作用域（Spring Bean Scope）是一个核心概念，它决定了在Spring IoC容器中Bean实例的生命周期和可见性。Spring提供了多种作用域，包括singleton（单例）、prototype（原型）、request（请求）、session（会话）、application（应用程序）和websocket（WebSocket），每种作用域都适用于不同的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="List集合">
-<meta property="og:url" content="https://shudj.github.io/2025/04/10/List%E9%9B%86%E5%90%88/index.html">
+<meta property="og:title" content="Spring Bean作用域">
+<meta property="og:url" content="https://shudj.github.io/2025/04/16/Spring%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/index.html">
 <meta property="og:site_name" content="SHU DJ">
-<meta property="og:description" content="Java集合中常用的集合ArrayList，LinkedList">
+<meta property="og:description" content="在Spring框架中，Bean的作用域（Spring Bean Scope）是一个核心概念，它决定了在Spring IoC容器中Bean实例的生命周期和可见性。Spring提供了多种作用域，包括singleton（单例）、prototype（原型）、request（请求）、session（会话）、application（应用程序）和websocket（WebSocket），每种作用域都适用于不同的">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-04-10T09:14:18.000Z">
-<meta property="article:modified_time" content="2025-04-10T10:05:09.390Z">
+<meta property="article:published_time" content="2025-04-16T13:22:47.000Z">
+<meta property="article:modified_time" content="2025-04-16T13:33:51.611Z">
 <meta property="article:author" content="shudj">
-<meta property="article:tag" content="Java基础">
+<meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -172,14 +172,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-List集合" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spring的作用域" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      List集合
+      Spring Bean作用域
     </h1>
   
 
@@ -191,8 +191,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2025/04/10/List%E9%9B%86%E5%90%88/" class="archive-article-date">
-        <time datetime="2025-04-10T09:14:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-10</time>
+<a href="/2025/04/16/Spring%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
+        <time datetime="2025-04-16T13:22:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-16</time>
 </a>
 
   
@@ -201,46 +201,38 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>Java集合中常用的集合ArrayList，LinkedList</p>
-<span id="more"></span>
-
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
-<li><p>数据结构不同</p>
+    <p>在Spring框架中，<strong>Bean的作用域</strong>（Spring Bean Scope）是一个核心概念，它决定了在Spring IoC容器中Bean实例的生命周期和可见性。Spring提供了多种作用域，包括<strong>singleton</strong>（单例）、<strong>prototype</strong>（原型）、<strong>request</strong>（请求）、<strong>session</strong>（会话）、<strong>application</strong>（应用程序）和<strong>websocket</strong>（WebSocket），每种作用域都适用于不同的应用场景。</p>
 <ul>
-<li>ArrayList集合主要基于数组实现</li>
-<li>LinkedList是基于双向链表实现</li>
+<li>Singleton作用域</li>
 </ul>
-</li>
-<li><p>查找时间复杂度用区别</p>
+<p><strong>Singleton</strong>作用域是Spring的默认作用域，它确保在Spring IoC容器中，每个Bean定义只有一个实例。无论请求多少次，都会返回同一个Bean实例。这种作用域适用于无状态的Bean，例如服务层、数据访问层或工具类。</p>
 <ul>
-<li>ArrayList的<code>get(int index)</code>，是直接通过下标遍历获取，时间复杂度O(1)</li>
-<li>LinkedList的<code>get(int index)</code>，需要遍历链表获取，时间复杂度为O(n)</li>
-<li>两个如果使用<code>get(E element)</code>，都是需要遍历，时间复杂度为O(n)</li>
+<li>Prototype作用域</li>
 </ul>
-</li>
-<li><p>插入和删除数据区别</p>
+<p>与Singleton不同，<strong>Prototype</strong>作用域会为每个Bean请求创建一个新实例。这意味着每次调用*getBean()*时，都会得到一个新的Bean对象。这适用于那些有状态的Bean，其状态信息不应该被多个请求或线程共享。</p>
 <ul>
-<li>LinedList的插入和删除直接，修改前一个节点的和后一个节点的指向就好了（便利于增删）</li>
-<li>ArrayList的插入和删除比较复杂，如果是结尾插入直接插入就好，删除直接置null；如果需要插入<code>add(int index, E element);</code>中间的位置元素，需要把当前index的元素向后移动，中间可能涉及到扩容（一般按照1.5倍扩容，如果加入的元素大于1.5倍，按照添加元素的个数大于当前的一半，则按照添加元素个数扩容）；如果需要删除中间位置的元素，需要把当前index+1的元素向前移动，最后一位置null；</li>
+<li>Request、Session和Application作用域</li>
 </ul>
+<p>这三个作用域都是基于Web应用的，它们分别将Bean的生命周期绑定到HTTP请求、用户会话和整个Web应用程序的生命周期。</p>
+<ol>
+<li><p><strong>Request</strong>作用域的Bean会为每个HTTP请求创建一个新实例，</p>
 </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扩容算法</span></span><br><span class="line"><span class="keyword">private</span> Object[] grow(<span class="type">int</span> minCapacity) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">oldCapacity</span> <span class="operator">=</span> elementData.length;</span><br><span class="line">    <span class="keyword">if</span> (oldCapacity &gt; <span class="number">0</span> || elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">        <span class="comment">// 返回扩容后的长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">newCapacity</span> <span class="operator">=</span> ArraysSupport.newLength(oldCapacity,</span><br><span class="line">                minCapacity - oldCapacity, <span class="comment">/* minimum growth */</span></span><br><span class="line">                oldCapacity &gt;&gt; <span class="number">1</span>           <span class="comment">/* preferred growth */</span>);</span><br><span class="line">        <span class="comment">// 复制当前数组到扩容后的数组</span></span><br><span class="line">        <span class="type">return</span> <span class="variable">elementData</span> <span class="operator">=</span> Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">return</span> <span class="variable">elementData</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Object</span>[Math.max(DEFAULT_CAPACITY, minCapacity)];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="modCount属性"><a href="#modCount属性" class="headerlink" title="modCount属性"></a>modCount属性</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 此列表在 结构上被修改的次数。结构修改是指更改列表大小的修改，或者以其他方式干扰列表，以至于正在进行的迭代可能会产生不正确的结</span></span><br><span class="line"><span class="comment">* 果。此字段由 and listIterator 方法返回的iterator迭代器和列表迭代器实现使用。如果此字段的值意外更改，则迭代器（或列表迭代 </span></span><br><span class="line"><span class="comment">* 器）将抛出 a ConcurrentModificationException 以响应 next、 remove、 previousset 或 add作。这提供了快速失败的行为，</span></span><br><span class="line"><span class="comment">* 而不是在迭代期间面对并发修改时的非确定性行为。</span></span><br><span class="line"><span class="comment">* 子类使用此字段是可选的。 如果子类希望提供快速失败的迭代器（和列表迭代器），那么它只需要在其 add(int, E) and remove(int) 方* 法（以及它覆盖的导致列表结构修改的任何其他方法）中增加此字段。对此字段的 add(int, E) 单个调用或 remove(int) 必须向此字段添* 加不超过一个，否则迭代器（和列表迭代器）将引发 bogus ConcurrentModificationExceptions。如果实现不希望提供 fail-fast 迭* 代器，则可以忽略此字段。</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">transient</span> <span class="type">int</span> <span class="variable">modCount</span> <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="ArrayList线程安全的方法"><a href="#ArrayList线程安全的方法" class="headerlink" title="ArrayList线程安全的方法"></a>ArrayList线程安全的方法</h4><ul>
-<li><p>使用Vector代替</p>
+<li><p><strong>Application</strong>作用域的Bean则在整个ServletContext中只创建一个实例，适用于全局共享的数据。</p>
 </li>
-<li><p>使用Collections.synchronizedList包装ArrayList，返回的是一个List，对所有的add，remove等操作都使用<code>synchronized</code>加了锁</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; List&lt;T&gt; <span class="title function_">synchronizedList</span><span class="params">(List&lt;T&gt; list)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (list <span class="keyword">instanceof</span> RandomAccess ?</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">SynchronizedRandomAccessList</span>&lt;&gt;(list) :</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">SynchronizedList</span>&lt;&gt;(list));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p><strong>Session</strong>作用域的Bean则在同一个HTTP会话中共享一个实例。</p>
 </li>
-<li><p>使用CopyOnWriteArrayList代替</p>
+</ol>
 <ul>
-<li>CopyOnWriteArrayList采⽤了⼀种读写分离的并发策略。CopyOnWriteArrayList容器允许并发读，读操作是⽆锁的，性能较⾼。⾄于写操作，⽐如向容器中添加⼀个元素，则⾸先将当前容器复制⼀份，然后在新副本上执⾏写操作，结束之后再将原容器的引⽤指向新容器。</li>
+<li>自定义作用域</li>
 </ul>
-</li>
+<p>Spring还允许开发者定义自己的作用域，通过实现<em>Scope</em>接口并注册到Spring容器中，可以创建满足特定需求的自定义作用域。</p>
+<ul>
+<li>使用注解定义Bean的作用域</li>
 </ul>
+<p>除了在XML配置文件中声明Bean的作用域，Spring还提供了注解方式来定义作用域。例如，使用*@Scope(“prototype”)<em>注解可以将Bean声明为Prototype作用域，而</em>@RequestScope<em>、</em>@SessionScope<em>和</em>@ApplicationScope*注解则分别用于声明对应的Web相关作用域。</p>
+<p><strong>作用域的选择</strong></p>
+<p>选择正确的Bean作用域对于管理应用程序的状态和资源非常重要。例如，对于需要跨多个请求保持状态的组件，应选择Request或Session作用域。对于全局配置或缓存信息，Application作用域可能更合适。而对于那些每次使用时都需要独立状态的组件，则应选择Prototype作用域。</p>
+<p>在实际开发中，理解和选择合适的Spring Bean作用域对于构建高效、可维护的Spring应用至关重要。开发者应根据应用程序的具体需求和行为来选择最合适的作用域，以确保资源的有效管理和应用程序的稳定运行。</p>
 
     
 
@@ -282,7 +274,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://shudj.github.io/2025/04/10/List集合/" title="List集合" target="_blank">https://shudj.github.io/2025/04/10/List集合/</a>
+          <a href="https://shudj.github.io/2025/04/16/Spring的作用域/" title="Spring Bean作用域" target="_blank">https://shudj.github.io/2025/04/16/Spring的作用域/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -301,7 +293,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
         		</li>
       		
 		</ul>
@@ -357,7 +349,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/04/10/List%E9%9B%86%E5%90%88/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/04/16/Spring%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -372,18 +364,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2025/04/11/MySQL%E9%94%81%E7%9B%B8%E5%85%B3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MySQL锁相关
-        
-      </div>
-    </a>
   
-  
-    <a href="/2025/03/30/MySQL%E4%BA%8B%E7%89%A9%E7%9B%B8%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL事物相关</div>
+    <a href="/2025/04/13/windows%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">windows命令</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -17,7 +17,7 @@
 <meta property="og:description" content="本文详细介绍了Redis的内存淘汰策略，包括定期删除和惰性删除，并讨论了为何需要两种策略。此外，还讲解了如何配置Redis的最大内存大小，以及提供了多种内存淘汰策略，如no-enviction、allkeys-random等。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-04-13T10:26:14.000Z">
-<meta property="article:modified_time" content="2025-04-13T11:09:21.984Z">
+<meta property="article:modified_time" content="2025-04-15T00:51:18.902Z">
 <meta property="article:author" content="shudj">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -207,13 +207,11 @@
 <h4 id="Redis过期删除策略"><a href="#Redis过期删除策略" class="headerlink" title="Redis过期删除策略"></a>Redis过期删除策略</h4><ul>
 <li>惰性删除</li>
 </ul>
-<p>惰性删除指的是当我们查询key的时候才对key进⾏检测，如果已经达到过期时间，则删除。显然，他</p>
-<p>有⼀个缺点就是如果这些过期的key没有被访问，那么他就⼀直⽆法被删除，⽽且⼀直占⽤内存。</p>
+<p>惰性删除指的是当我们查询key的时候才对key进⾏检测，如果已经达到过期时间，则删除。显然，他有⼀个缺点就是如果这些过期的key没有被访问，那么他就⼀直⽆法被删除，⽽且⼀直占⽤内存。</p>
 <ul>
 <li>定期删除</li>
 </ul>
-<p>定期删除指的是Redis每隔⼀段时间对数据库做⼀次检查，删除⾥⾯的过期key。由于不可能对所有key</p>
-<p>去做轮询来删除，所以Redis会每次随机取⼀些key去做检查和删除。</p>
+<p>定期删除指的是Redis每隔⼀段时间对数据库做⼀次检查，删除⾥⾯的过期key。由于不可能对所有key去做轮询来删除，所以Redis会每次随机取⼀些key去做检查和删除。</p>
 <h4 id="配置内存"><a href="#配置内存" class="headerlink" title="配置内存"></a>配置内存</h4><ul>
 <li>修改配置文件 <code>redis.conf</code>（一直有效）</li>
 </ul>
@@ -590,6 +588,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
             
             <div class="clearfix"></div>
