@@ -61,7 +61,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/head.jpg" class="js-avatar">
+			<img src="/img/logo.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -123,7 +123,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				<a href="/">
-					<img src="/img/head.jpg" class="js-avatar">
+					<img src="/img/logo.png" class="js-avatar">
 				</a>
 			</div>
 			<hgroup>
@@ -173,6 +173,379 @@
             
 
   
+    <article id="post-Spring事务相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/04/22/Spring%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3/" target="_blank">Spring事务相关</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/04/22/Spring%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+        <time datetime="2025-04-22T09:12:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-22</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><strong>事务是逻辑上的一组操作，要么都执行，要么都不执行。</strong></p>
+<h4 id="事务特性"><a href="#事务特性" class="headerlink" title="事务特性"></a>事务特性</h4><ul>
+<li><p><strong>原子性</strong>（<code>Atomicity</code>）：事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；</p>
+</li>
+<li><p><strong>一致性</strong>（<code>Consistency</code>）：执行事务前后，数据保持一致，例如转账业务中，无论事务是否成功，转账者和收款人的总额应该是不变的；</p>
+</li>
+<li><p><strong>隔离性</strong>（<code>Isolation</code>）：并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的；</p>
+</li>
+<li><p><strong>持久性</strong>（<code>Durability</code>）：一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。</p>
+</li>
+</ul>
+    
+    <a class="article-more-a" href="/2025/04/22/Spring%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/04/22/Spring%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-算法—不同路径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/04/21/%E7%AE%97%E6%B3%95%E2%80%94%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" target="_blank">算法—不同路径</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/04/21/%E7%AE%97%E6%B3%95%E2%80%94%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/" class="archive-article-date">
+        <time datetime="2025-04-21T07:50:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-21</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>一个机器人位于一个 <code>m x n</code> 网格的左上角 （0，0）。</p>
+<p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（m-1,n-1）。</p>
+<p>问总共有多少条不同的路径？</p>
+    
+    <a class="article-more-a" href="/2025/04/21/%E7%AE%97%E6%B3%95%E2%80%94%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/04/21/%E7%AE%97%E6%B3%95%E2%80%94%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-算法—通过投票对团队排名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E9%80%9A%E8%BF%87%E6%8A%95%E7%A5%A8%E5%AF%B9%E5%9B%A2%E9%98%9F%E6%8E%92%E5%90%8D/" target="_blank">算法—通过投票对团队排名</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E9%80%9A%E8%BF%87%E6%8A%95%E7%A5%A8%E5%AF%B9%E5%9B%A2%E9%98%9F%E6%8E%92%E5%90%8D/" class="archive-article-date">
+        <time datetime="2025-04-18T11:10:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-18</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>现在有一个特殊的排名系统，依据参赛团队在投票人心中的次序进行排名，每个投票者都需要按从高到低的顺序对参与排名的所有团队进行排位。</p>
+<p>排名规则如下：</p>
+<ul>
+<li>参赛团队的排名次序依照其所获「排位第一」的票的多少决定。如果存在多个团队并列的情况，将继续考虑其「排位第二」的票的数量。以此类推，直到不再存在并列的情况。</li>
+<li>如果在考虑完所有投票情况后仍然出现并列现象，则根据团队字母的字母顺序进行排名。</li>
+</ul>
+<p>给你一个字符串数组 <code>votes</code> 代表全体投票者给出的排位情况，请你根据上述排名规则对所有参赛团队进行排名。</p>
+<p>请你返回能表示按排名系统 <strong>排序后</strong> 的所有团队排名的字符串。</p>
+    
+    <a class="article-more-a" href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E9%80%9A%E8%BF%87%E6%8A%95%E7%A5%A8%E5%AF%B9%E5%9B%A2%E9%98%9F%E6%8E%92%E5%90%8D/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E9%80%9A%E8%BF%87%E6%8A%95%E7%A5%A8%E5%AF%B9%E5%9B%A2%E9%98%9F%E6%8E%92%E5%90%8D/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-算法—二叉搜索子树的最大键值和" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E5%AD%90%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E9%94%AE%E5%80%BC%E5%92%8C/" target="_blank">算法—二叉搜索子树的最大键值和</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E5%AD%90%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E9%94%AE%E5%80%BC%E5%92%8C/" class="archive-article-date">
+        <time datetime="2025-04-18T09:20:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-18</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>给你一棵以 <code>root</code> 为根的 <strong>二叉树</strong> ，请你返回 <strong>任意</strong> 二叉搜索子树的最大键值和。</p>
+<p>二叉搜索树的定义如下：</p>
+<ul>
+<li>任意节点的左子树中的键值都 <strong>小于</strong> 此节点的键值。</li>
+<li>任意节点的右子树中的键值都 <strong>大于</strong> 此节点的键值。</li>
+<li>任意节点的左子树和右子树都是二叉搜索树。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E5%AD%90%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E9%94%AE%E5%80%BC%E5%92%8C/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">树</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2025/04/18/%E7%AE%97%E6%B3%95%E2%80%94%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E5%AD%90%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E9%94%AE%E5%80%BC%E5%92%8C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Spring的作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -200,38 +573,9 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>在Spring框架中，<strong>Bean的作用域</strong>（Spring Bean Scope）是一个核心概念，它决定了在Spring IoC容器中Bean实例的生命周期和可见性。Spring提供了多种作用域，包括<strong>singleton</strong>（单例）、<strong>prototype</strong>（原型）、<strong>request</strong>（请求）、<strong>session</strong>（会话）、<strong>application</strong>（应用程序）和<strong>websocket</strong>（WebSocket），每种作用域都适用于不同的应用场景。</p>
-<ul>
-<li>Singleton作用域</li>
-</ul>
-<p><strong>Singleton</strong>作用域是Spring的默认作用域，它确保在Spring IoC容器中，每个Bean定义只有一个实例。无论请求多少次，都会返回同一个Bean实例。这种作用域适用于无状态的Bean，例如服务层、数据访问层或工具类。</p>
-<ul>
-<li>Prototype作用域</li>
-</ul>
-<p>与Singleton不同，<strong>Prototype</strong>作用域会为每个Bean请求创建一个新实例。这意味着每次调用*getBean()*时，都会得到一个新的Bean对象。这适用于那些有状态的Bean，其状态信息不应该被多个请求或线程共享。</p>
-<ul>
-<li>Request、Session和Application作用域</li>
-</ul>
-<p>这三个作用域都是基于Web应用的，它们分别将Bean的生命周期绑定到HTTP请求、用户会话和整个Web应用程序的生命周期。</p>
-<ol>
-<li><p><strong>Request</strong>作用域的Bean会为每个HTTP请求创建一个新实例，</p>
-</li>
-<li><p><strong>Application</strong>作用域的Bean则在整个ServletContext中只创建一个实例，适用于全局共享的数据。</p>
-</li>
-<li><p><strong>Session</strong>作用域的Bean则在同一个HTTP会话中共享一个实例。</p>
-</li>
-</ol>
-<ul>
-<li>自定义作用域</li>
-</ul>
-<p>Spring还允许开发者定义自己的作用域，通过实现<em>Scope</em>接口并注册到Spring容器中，可以创建满足特定需求的自定义作用域。</p>
-<ul>
-<li>使用注解定义Bean的作用域</li>
-</ul>
-<p>除了在XML配置文件中声明Bean的作用域，Spring还提供了注解方式来定义作用域。例如，使用*@Scope(“prototype”)<em>注解可以将Bean声明为Prototype作用域，而</em>@RequestScope<em>、</em>@SessionScope<em>和</em>@ApplicationScope*注解则分别用于声明对应的Web相关作用域。</p>
-<p><strong>作用域的选择</strong></p>
-<p>选择正确的Bean作用域对于管理应用程序的状态和资源非常重要。例如，对于需要跨多个请求保持状态的组件，应选择Request或Session作用域。对于全局配置或缓存信息，Application作用域可能更合适。而对于那些每次使用时都需要独立状态的组件，则应选择Prototype作用域。</p>
-<p>在实际开发中，理解和选择合适的Spring Bean作用域对于构建高效、可维护的Spring应用至关重要。开发者应根据应用程序的具体需求和行为来选择最合适的作用域，以确保资源的有效管理和应用程序的稳定运行。</p>
-
+    
+    <a class="article-more-a" href="/2025/04/16/Spring%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/#more">more >></a>
+    
     
 
     
@@ -720,373 +1064,9 @@
 
 
   
-    <article id="post-MySQL索引相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" target="_blank">MySQL索引相关</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/" class="archive-article-date">
-        <time datetime="2025-03-30T02:26:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-30</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>索引是对数据库表中一列或多列的值进行排序的一种数据结构。MySQL索引的简历对于MySQL的高效运行是很重要的，索引可以大大提高MySQL的检索速度。</p>
-    
-    <a class="article-more-a" href="/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2025/03/30/MySQL%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-synchronized-ReentrantLock" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2025/03/28/synchronized-ReentrantLock/" target="_blank">synchronized和ReentrantLock的区别</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2025/03/28/synchronized-ReentrantLock/" class="archive-article-date">
-        <time datetime="2025-03-28T09:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>项目中，常用的锁有两种：synchronized和ReentrantLock。</p>
-    
-    <a class="article-more-a" href="/2025/03/28/synchronized-ReentrantLock/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2025/03/28/synchronized-ReentrantLock/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-线程池" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" target="_blank">线程池</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="archive-article-date">
-        <time datetime="2025-03-28T07:49:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>什么是线程池？就是一个管理线程的池子，避免开发人员频繁的创建和销毁线程的资源耗损。</p>
-    
-    <a class="article-more-a" href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-OOP原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/" target="_blank">OOP原则</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/" class="archive-article-date">
-        <time datetime="2025-03-28T07:10:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
-
-  
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>面向对象编程（OOP）三大特性、五项原则</p>
-    
-    <a class="article-more-a" href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1132,7 +1112,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -1257,6 +1237,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
             
             <div class="clearfix"></div>
