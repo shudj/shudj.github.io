@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://shudj.github.io">
-  <title>Tag: Java基础 | SHU DJ</title>
+  <title>postgreSQL学习文档 | SHU DJ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SHU DJ">
-<meta property="og:url" content="https://shudj.github.io/tags/Java%E5%9F%BA%E7%A1%80/index.html">
+  <meta name="description" content="该文档用于学习PostgreSQL基础命令相关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="postgreSQL学习文档">
+<meta property="og:url" content="https://shudj.github.io/2025/05/18/postgreSQL%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/index.html">
 <meta property="og:site_name" content="SHU DJ">
+<meta property="og:description" content="该文档用于学习PostgreSQL基础命令相关">
 <meta property="og:locale">
+<meta property="article:published_time" content="2025-05-18T08:55:48.000Z">
+<meta property="article:modified_time" content="2025-05-18T13:44:22.879Z">
 <meta property="article:author" content="shudj">
+<meta property="article:tag" content="PostgreSQL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SHU DJ" type="application/atom+xml">
@@ -167,351 +172,233 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-postgreSQL学习文档" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/04/10/List%E9%9B%86%E5%90%88/" class="archive-article-date">
-        <time datetime="2025-04-10T09:14:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-04-10</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/04/10/List%E9%9B%86%E5%90%88/" target="_blank">List集合</a>
   
+    <h1 class="article-title" itemprop="name">
+      postgreSQL学习文档
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
+<a href="/2025/05/18/postgreSQL%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" class="archive-article-date">
+        <time datetime="2025-05-18T08:55:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-05-18</time>
+</a>
+
+  
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>该文档用于学习PostgreSQL基础命令相关</p>
+<span id="more"></span>
+
+<h4 id="1-创建数据库"><a href="#1-创建数据库" class="headerlink" title="1.创建数据库"></a>1.创建数据库</h4><ul>
+<li>CREATE DATABASE 命令需要在 PostgreSQL 命令窗口来执行</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE dbname;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>createdb 创建一个 PostgreSQL 数据库</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">使用方法:</span><br><span class="line">  createdb [选项]... [数据库名称] [描述]</span><br><span class="line"></span><br><span class="line">选项:</span><br><span class="line">  -D, --tablespace=TABLESPACE  数据库默认表空间</span><br><span class="line">  -e, --echo                   显示发送到服务端的命令</span><br><span class="line">  -E, --encoding=ENCODING      数据库编码</span><br><span class="line">  -l, --locale=LOCALE          数据库的本地化设置</span><br><span class="line">      --lc-collate=LOCALE      数据库的LC_COLLATE设置</span><br><span class="line">      --lc-ctype=LOCALE        数据库的LC_CTYPE设置</span><br><span class="line">      --icu-locale=LOCALE      ICU locale setting for the database</span><br><span class="line">      --icu-rules=RULES        ICU rules setting for the database</span><br><span class="line">      --locale-provider=&#123;libc|icu&#125;</span><br><span class="line">                               locale provider for the database&#x27;s default collation</span><br><span class="line">  -O, --owner=OWNER            新数据库的所属用户</span><br><span class="line">  -S, --strategy=STRATEGY      database creation strategy wal_log or file_copy</span><br><span class="line">  -T, --template=TEMPLATE      要拷贝的数据库模板</span><br><span class="line">  -V, --version                输出版本信息, 然后退出</span><br><span class="line">  -?, --help                   显示此帮助, 然后退出</span><br><span class="line"></span><br><span class="line">联接选项:</span><br><span class="line">  -h, --host=HOSTNAME          数据库服务器所在机器的主机名或套接字目录</span><br><span class="line">  -p, --port=PORT              数据库服务器端口号</span><br><span class="line">  -U, --username=USERNAME      联接的用户名</span><br><span class="line">  -w, --no-password            永远不提示输入口令</span><br><span class="line">  -W, --password               强制提示输入口令</span><br><span class="line">  --maintenance-db=DBNAME      更改维护数据库</span><br><span class="line"></span><br><span class="line">默认情况下, 以当前用户的用户名创建数据库.</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-删除数据库"><a href="#2-删除数据库" class="headerlink" title="2.删除数据库"></a>2.删除数据库</h4><ul>
+<li>DROP DATABASE 删除数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">DROP</span> DATABASE 会删除数据库的系统目录项并且删除包含数据的文件目录。</span><br><span class="line"># <span class="keyword">DROP</span> DATABASE 只能由超级管理员或数据库拥有者执行。</span><br><span class="line"><span class="keyword">DROP</span> DATABASE [ IF <span class="keyword">EXISTS</span> ] dbname</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>dropdb 删除一个 PostgreSQL 数据库</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">使用方法:</span><br><span class="line">  dropdb [选项]... 数据库名</span><br><span class="line"></span><br><span class="line">选项:</span><br><span class="line">  -e, --echo                显示发送到服务端的命令</span><br><span class="line">  -f, --force               强尝试在删除之前终止其他连接</span><br><span class="line">  -i, --interactive         删除任何东西之前给予提示</span><br><span class="line">  -V, --version             输出版本信息, 然后退出</span><br><span class="line">  --if-exists               如果数据库不存在则不报告错误</span><br><span class="line">  -?, --help                显示此帮助, 然后退出</span><br><span class="line"></span><br><span class="line">联接选项:</span><br><span class="line">  -h, --host=HOSTNAM        数据库服务器所在机器的主机名或套接字目录</span><br><span class="line">  -p, --port=PORT           数据库服务器端口号</span><br><span class="line">  -U, --username=USERNAME   联接的用户名</span><br><span class="line">  -w, --no-password         永远不提示输入口令</span><br><span class="line">  -W, --password            强制提示输入口令</span><br><span class="line">  --maintenance-db=DBNAME   更改维护数据库</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-创建表格"><a href="#3-创建表格" class="headerlink" title="3.创建表格"></a>3.创建表格</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE table_name(</span><br><span class="line">   column1 datatype,</span><br><span class="line">   column2 datatype,</span><br><span class="line">   column3 datatype,</span><br><span class="line">   .....</span><br><span class="line">   columnN datatype,</span><br><span class="line">   PRIMARY KEY( 一个或多个列 )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-删除表格"><a href="#4-删除表格" class="headerlink" title="4.删除表格"></a>4.删除表格</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE table_name;</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你鼓励，我会再接再厉<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          shudj
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://shudj.github.io/2025/05/18/postgreSQL学习文档/" title="postgreSQL学习文档" target="_blank">https://shudj.github.io/2025/05/18/postgreSQL学习文档/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">PostgreSQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://shudj.github.io/2025/05/18/postgreSQL%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/28/synchronized-ReentrantLock/" class="archive-article-date">
-        <time datetime="2025-03-28T09:21:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2025/10/12/windows11-%E6%B6%88%E9%99%A4%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%9B%BE%E6%A0%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          windows11 消除快捷键图标
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/04/22/Spring%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring事务相关</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/28/synchronized-ReentrantLock/" target="_blank">synchronized和ReentrantLock的区别</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="archive-article-date">
-        <time datetime="2025-03-28T07:49:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/28/%E7%BA%BF%E7%A8%8B%E6%B1%A0/" target="_blank">线程池</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/" class="archive-article-date">
-        <time datetime="2025-03-28T07:10:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/28/OOP%E5%8E%9F%E5%88%99/" target="_blank">OOP原则</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/27/%E5%B9%B6%E5%8F%91/" class="archive-article-date">
-        <time datetime="2025-03-27T06:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-27</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/27/%E5%B9%B6%E5%8F%91/" target="_blank">并发相关</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-        <time datetime="2025-03-25T02:05:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/25/JMM-Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" target="_blank">JMM(Java内存模型)</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
-        <time datetime="2025-03-24T09:25:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2025-03-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2025/03/24/String%E6%8B%86%E5%88%86%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_blank">String拆分字符串</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -547,9 +434,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
